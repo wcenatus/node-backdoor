@@ -29,12 +29,12 @@
 
         <div style='border-bottom: 2px solid #eaeaea' class="mt-7 ">
           <ul class='tabs flex cursor-pointer'>
-              <li class='py-2 px-6 bg-white rounded-t-lg active'><a>Details</a></li>
-              <li class='py-2 px-6 bg-white rounded-t-lg text-gray-500 bg-gray-200'><a>Agent Schedule</a></li>
-              <li class='py-2 px-6 bg-white rounded-t-lg text-gray-500 bg-gray-200'><a>Edit</a></li>
+              <li onclick="changeTab(1)" class='py-2 px-6 bg-white rounded-t-lg active'><a>Details</a></li>
+              <li onclick="changeTab(2)" class='py-2 px-6 bg-white rounded-t-lg text-gray-500 bg-gray-200'><a>Schedule A</a></li>
+              <li onclick="changeTab(3)" class='py-2 px-6 bg-white rounded-t-lg text-gray-500 bg-gray-200'><a>Commision Rates</a></li>
           </ul>
         </div>
-        <div class="bg-gray-100 py-3 px-3 border-l-2 border-blue-600">
+        <div id="details" class="bg-gray-100 py-3 px-3 border-l-2 border-blue-600">
             <!-- <p class="text-3xl mb-5 font-medium inline-block ">Wesley Cenatus </p> <div class="simpleCircle inline-block"><a href='./commission.html'><i class="fa fa-dollar-sign"></i></a></div> -->
             <div class="grid grid-cols-3 gap-4">
                 <fieldset>
@@ -98,17 +98,167 @@
             border-blue-600 transition "> Edit</a>   
         </div>
     </div>
-    <div class="container mx-auto mt-7">
+    <div id="schedulea" class="container mx-auto mt-3">
+      <h1 class="text-2xl pl-6 mb-2">Monthly Fees</h1>
+      <table class=" min-w-full divide-y divide-gray-200">
+        <thead>
+          <tr>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Component</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Buy Rate</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Revenue Rate</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Max Rate</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Passthrough</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">Monthly Service Fee</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$5</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">0.5%</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$29.99</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">false</td>        
+          </tr>
+
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">Regular Monthly Fee</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$2.99</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">0.5%</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$29.99</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">false</td>        
+          </tr>
+
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">Regulatory Bundle Monthly Fee</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$0</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">0%</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$0</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">false</td>        
+          </tr>
+        </tbody>
+      </table>
+
+      <h1 class="text-2xl pl-6 mb-2 mt-3">Monthly Fees</h1>
+      <table class=" min-w-full divide-y divide-gray-200">
+        <thead>
+          <tr>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Component</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Buy Rate</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Revenue Rate</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Max Rate</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Passthrough</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">Monthly Service Fee</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$5</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">0.5%</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$29.99</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">false</td>        
+          </tr>
+
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">Regular Monthly Fee</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$2.99</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">0.5%</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$29.99</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">false</td>        
+          </tr>
+
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">Regulatory Bundle Monthly Fee</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$0</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">0%</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">$0</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">false</td>        
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    
+    <div id="commision" class="container mx-auto mt-3">
+      <h1 class="text-2xl pl-6 mb-2 mt-3">Commission Rates</h1>
+      <table class=" min-w-full divide-y divide-gray-200">
+        <thead>
+          <tr>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Commission Code</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Agent Rate</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Commission Name</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Profit Manager</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Platform</th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">010001</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">0.050</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">XX123,CF</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">Chris Frey</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">TSYS</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+            </td>   
+          </tr>
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">010002</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">XX123,CF</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">Chris Frey</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">TSYS</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">0.050</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+            </td>   
+          </tr>
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">010003</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">XX123,CF</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">Chris Frey</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">TSYS</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">0.050</td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+            </td>   
+          </tr>
+         
+          
+        </tbody>
+      </table>
+    </div>
+
+    
 
     <script>
-       $('ul.tabs li').click(function(){
-       if(!$(this).hasClass("active")){
-                 $(".active").removeClass("active").addClass("text-gray-500 bg-gray-200");
-                 $(this).addClass("active").removeClass("text-gray-500 bg-gray-200");
-        }else{
+      $(function(){
+        $('ul.tabs li').click(function(){
+          if(!$(this).hasClass("active")){
+            $(".active").removeClass("active").addClass("text-gray-500 bg-gray-200");
+            $(this).addClass("active").removeClass("text-gray-500 bg-gray-200");
+          }else{
             return false;//this prevents flicker
-       }
-    });
+          }
+        });
+      })
+
+      $('#schedulea').hide()
+      $('#commision').hide()
+      function changeTab(tab){
+        if(tab === 1){
+          $('#details').show()
+          $('#schedulea').hide()
+          $('#commision').hide()
+        }else if(tab === 2){
+          $('#details').hide()
+          $('#schedulea').show()
+          $('#commision').hide()
+        }else if(tab === 3){
+          $('#details').hide()
+          $('#schedulea').hide()
+          $('#commision').show()
+        }
+
+      }
     </script>
 
 
@@ -231,57 +381,6 @@
         </div>
       </div>
     </section> -->
-
-
-      <!-- <section>
-        <h2 class="text-3xl mt-7 mb-3">Agent</h2>
-          <div class=" grid grid-cols-4">
-            <div class="max-w-sm rounded overflow-hidden shadow-md mr-5">
-              <div class="bg-blue-100 w-full h-2"></div>
-              <div></div>
-              <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">Agent 1</div>
-                <p>Wesley Cenatus</p>
-                <p class="mt-3">Rate:</p>
-                <p>0.50</p>
-              </div>
-            </div>
-
-            <div class="max-w-sm rounded overflow-hidden shadow-md mr-5">
-              <div class="bg-blue-600 w-full h-2"></div>
-              <div></div>
-              <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">Agent 2</div>
-                <p>Wesley Cenatus</p>
-                <p class="mt-3">Rate:</p>
-                <p>0.50</p>
-              </div>
-            </div>
-
-            <div class="max-w-sm rounded overflow-hidden shadow-md mr-5">
-              <div class="bg-blue-100 w-full h-2"></div>
-              <div></div>
-              <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">Agent 3</div>
-                <p>Wesley Cenatus</p>
-                <p class="mt-3">Rate:</p>
-                <p>0.50</p>
-              </div>
-            </div>
-            
-            <div class="max-w-sm rounded overflow-hidden shadow-md">
-              <div class="bg-blue-100 w-full h-2"></div>
-              <div></div>
-              <div class="px-6 py-4">
-                <div class="text-center bg-gray-50 text-sm text-blue-600"><a href="#" class=""><i class="fas fa-plus-circle "></i> Add Agent and rate</a></div>
-              </div>
-            </div>
-          </div>
-        </section> -->
-
-
-
-    </div>
     
 </body>
 </html>
