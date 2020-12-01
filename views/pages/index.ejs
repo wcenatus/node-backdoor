@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+    
+</head>
+<body>
+
+  <%- include('../partials/navbar') %>
+
+  <!-- <div class="container mx-auto pt-5">
+    <nav class="rounded font-sans w-full my-4">
+      <ol class="list-reset flex text-grey-dark">
+        <li>Search</li>
+      </ol>
+    </nav>
+  </div> -->
+  <div class="container mx-auto pt-5">
+    
+  <p class="text-5xl mb-5">Agents</p>
+  <div class="container py-5 mx-auto mb-5 grid grid-cols-12 gap-4">
+      
+        <div class="col-span-10">
+            <input class="appearance-none border-2 bg-gray-200 border-gray-200 rounded w-full h-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value="Jane Doe">
+        </div>
+        <div class="relative col-span-2">
+          <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+            <option>All</option>
+            <option>Active</option>
+            <option>Inactive</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+        </div>
+       <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded col-span-2"> Search</button> -->
+      
+  </div>
+   
+  <div class="container mx-auto">
+    <div class="flex flex-col mt-5">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table class=" min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-100">
+                  <tr>
+                    <td class="bg-white border-none" colspan="2"></td>
+                    <td class="text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider" colspan="2">
+                      <div class="py-2" style="margin-left: 20px;">
+                        Agent Codes
+                      </div> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                      Agent ID
+                    </th>
+                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                      Name
+                    </th>
+                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                      TSYS
+                    </th>
+                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                      Trisource
+                    </th>
+                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                      Reports to
+                    </th>
+                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
+                    <th class="px-6 py-3 bg-gray-50"></th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <% data.forEach(agent =>{%>
+                  <tr class="hover:bg-blue-100">
+                    <!-- AGENT ID -->
+                    <td class="px-6 py-4 whitespace-no-wrap">  
+                      <div class="text-sm leading-5 font-medium text-gray-900">
+                        <%= agent.agent_id %>
+                      </div>          
+                    </td>
+                    <!-- FIRST -->
+                    <td class="px-6 py-4 whitespace-no-wrap">
+                      <a href='/agent/<%= agent.agent_id %>' class="text-sm leading-5 font-medium text-gray-900"><%= agent.name %></a>
+                    </td>
+                    <!-- TSYS -->
+                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                      <%= agent.codes.TSYS %>
+                    </td>
+                    <!-- TRISOURCE -->
+                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                      <%= agent.codes.TriSource %>
+
+                    </td>
+                    <!-- REPORTS TO -->
+                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                      <%= agent.reports_to %>
+                    </td>
+                    <!-- STATUS -->
+                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        <%= agent.active === true? 'Active' : 'Inactive' %>
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
+                      <a href="./editagent.html" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                    </td>
+                  </tr>
+                  <% })%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</body>
+</html>
