@@ -53,3 +53,12 @@
     height: 220px;
     z-index: -1;
   }
+
+  li.active{
+    background-color: #2B6CB0 !important;
+    color: white;
+  }
+  .container{
+    margin-left: 100px !important;
+    margin-right: 100px !important;
+  }

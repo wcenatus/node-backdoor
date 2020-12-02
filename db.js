@@ -47,6 +47,7 @@ module.exports= {
         {
             "commission_code": "010001",
             "commission_name": ["LF101","CF"],
+            "platform":"TSYS",
             "agents":[
                 {"name":"Larry Fitzgerald", "rate":"0.050"},
                 {"name":"Chris Frey", "rate":"0.050"}
@@ -56,6 +57,7 @@ module.exports= {
         {
             "commission_code": "010002",
             "commission_name": ["LF101","CF"],
+            "platform":"TriSource",
             "agents":[
                 {"name":"Larry Fitzgerald", "rate":"0.050"},
                 {"name":"Chris Frey", "rate":"0.050"}
@@ -65,6 +67,7 @@ module.exports= {
         {
             "commission_code": "010003",
             "commission_name": ["CNF102","CF"],
+            "platform":"TriSource",
             "agents":[
                 {"name":"Cam Newton", "rate":"0.050"},
                 {"name":"Chris Frey", "rate":"0.050"}
@@ -74,6 +77,7 @@ module.exports= {
         {
             "commission_code": "010004",
             "commission_name": ["CN102","CF"],
+            "platform":"TSYS",
             "agents":[
                 {"name":"Cam Newton", "rate":"0.050"},
                 {"name":"Chris Frey", "rate":"0.050"}
@@ -83,6 +87,7 @@ module.exports= {
         {
             "commission_code": "010005",
             "commission_name": ["WC102","CF"],
+            "platform":"TSYS",
             "agents":[
                 {"name":"Larry Fitzgerald", "rate":"0.050"},
                 {"name":"Chris Frey", "rate":"0.050"}

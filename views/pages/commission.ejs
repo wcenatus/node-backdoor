@@ -56,7 +56,10 @@
                       Commission Name
                     </th>
                     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                      Profit Manager 
+                      Commission Translation
+                    </th>
+                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                      Platform
                     </th>
                     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                       Status
@@ -66,6 +69,7 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                   <% data.forEach(commission =>{%>
+                  <a href='/commission/<%= commission.commission_code %>' ></a>
                   <tr class="hover:bg-blue-100">
                      <!-- COMMISSION CODE -->
                     <td class="px-6 py-4 whitespace-no-wrap">
@@ -77,9 +81,17 @@
                         <%= commission.commission_name[0] + ", " +commission.commission_name[1] %>
                       </div>          
                     </td>
-                    <!-- PROFIT MANAGER -->
-                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                      <%= commission.agents[1].name %>
+                    <!-- COMMISSION TRANSLATION-->
+                    <td class="px-6 py-4 whitespace-no-wrap">  
+                      <div class="text-sm leading-5 font-medium text-gray-900">
+                        <%= commission.agents[0].name + ", " + commission.agents[1].name  %>
+                      </div>          
+                    </td>
+                    <!-- PLATFORM-->
+                    <td class="px-6 py-4 whitespace-no-wrap">  
+                      <div class="text-sm leading-5 font-medium text-gray-900">
+                        <%= commission.platform %>
+                      </div>          
                     </td>
                     <!-- STATUS -->
                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">

@@ -16,16 +16,20 @@ router.get('/', function (req, res) {
 })
 
 router.get('/:id', function (req, res) {
-    var id = req.params
+    var id = req.params.id
     var data = null
-
+    var agents= null
+    
     db.commission_rates.forEach(commission=>{
         if(id === commission.commission_code){
+            
             data = commission
+            agents = commission.agents
         }
     });
     res.render('pages/commissiondetails', {
-        data: data
+        data: data,
+        agents: agents
     })
 })
 
