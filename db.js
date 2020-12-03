@@ -72,7 +72,7 @@ module.exports= {
                 {"name":"Cam Newton", "rate":"0.050"},
                 {"name":"Chris Frey", "rate":"0.050"}
             ],
-            "active":true
+            "active":false
         },
         {
             "commission_code": "010004",
@@ -92,7 +92,7 @@ module.exports= {
                 {"name":"Larry Fitzgerald", "rate":"0.050"},
                 {"name":"Chris Frey", "rate":"0.050"}
             ],
-            "active":true
+            "active":false
         }
     ]
 
