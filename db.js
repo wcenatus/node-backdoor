@@ -3,6 +3,7 @@ module.exports= {
         {
             "agent_id":"012345",
             "name": "Wesley Cenatus",
+            "email":"Wesley.Cenatus@cwams.com",
             "codes":{
                 "TSYS":"0123456789",
                 "TriSource":"0123456789"

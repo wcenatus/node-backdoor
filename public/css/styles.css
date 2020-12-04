@@ -55,10 +55,10 @@
   }
 
   li.active{
-    background-color: #2B6CB0 !important;
-    color: white;
+    border-bottom: 2px solid #2b6cb0;
   }
   .container{
     margin-left: 100px !important;
     margin-right: 100px !important;
   }
+  
