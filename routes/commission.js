@@ -33,8 +33,7 @@ router.get('/:id', function (req, res) {
     })
 })
 
-router.route('/edit/:id')
-  .get(function (req, res) {
+router.get('/edit/:id', function (req, res) {
     var id = req.params.id
     var data = null
     var agents= null
@@ -51,9 +50,29 @@ router.route('/edit/:id')
         data: data,
         agents: agents
     })
-  })
-  .patch(function (req, res){
-    //TODO when comission is updated
-  })
+})
+
+// router.route('/edit/:id')
+//   .get(function (req, res) {
+//     var id = req.params.id
+//     var data = null
+//     var agents= null
+
+//     db.commission_rates.forEach(commission=>{
+//         if(id === commission.commission_code){
+            
+//             data = commission
+//             agents = commission.agents
+//         }
+//     });
+    
+//     res.render('pages/editcommission', {
+//         data: data,
+//         agents: agents
+//     })
+//   })
+//   .patch(function (req, res){
+//     //TODO when comission is updated
+//   })
 
   module.exports = router
