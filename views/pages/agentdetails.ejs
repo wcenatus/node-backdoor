@@ -12,22 +12,14 @@
 <body class="mb-5">
   
   <%- include('../partials/navbar') %>
-    <div class="backg"></div>
+    <div class="header">
+      <div id="header-container" class="container">
+        <p class="text-5xl text-white text-bottom"><strong><%= data.name %></strong></p>
+      </div>
+    </div>
     <div class="container mx-auto pt-5">
-        <nav class="rounded font-sans w-full my-4 text-white">
-            <ol class="list-reset flex text-grey-dark">
-                <li><a href="/" class="text-blue font-bold">Agents</a></li>
-                <li><span class="mx-2">/</span></li>
-                
-                <li><%= data.name %></li> 
-            </ol>
-        </nav>
-    </div> 
-    <div class="container mx-auto pt-5">
-        
-        <p class="text-5xl text-white"><strong><%= data.name %></strong></p>
 
-        <div style='border-bottom: 2px solid #eaeaea' class="mt-7 ">
+        <div style='border-bottom: 2px solid #eaeaea' class="mt-4 ">
           <ul class='tabs flex cursor-pointer'>
               <li onclick="changeTab(1)" class='py-2 px-6 active'><a>Details</a></li>
               <li onclick="changeTab(2)" class='py-2 px-6'><a>Schedule A</a></li>
@@ -38,39 +30,39 @@
             <!-- <p class="text-3xl mb-5 font-medium inline-block ">Wesley Cenatus </p> <div class="simpleCircle inline-block"><a href='./commission.html'><i class="fa fa-dollar-sign"></i></a></div> -->
             <div class="grid grid-cols-3 gap-4">
                 <fieldset>
-                    <legend class="uppercase text-xs font-semibold text-gray-800 mb-3 mt-4">Basic Information</legend>
+                    <legend class="uppercase text-sm font-bold text-blue-800 mb-3 mt-4">Basic Information</legend>
                     <div class="grid">
                         <div class="mb-3">
-                            <label class="text-sm">Email:</label>
+                            <label class="text-xs uppercase font-semibold text-gray-500">Email:</label>
                             <p class="font-semibold"><%= data.email %></p>
                         </div>
                         
                         <div class="mb-3">
-                            <label class="text-sm">Phone:</label>
+                            <label class="text-xs uppercase font-semibold text-gray-500">Phone:</label>
                             <p class="font-semibold"><%= data.phone %> </p>
                         </div>
 
                         <div class="mb-3">
-                          <label class="text-sm">Mobile:</label>
+                          <label class="text-xs uppercase font-semibold text-gray-500">Mobile:</label>
                           <p class="font-semibold"><%= data.mobile %></p>
                       </div>
                         
                         <div class="mb-3">
-                            <label class="text-sm">Address:</label>
+                            <label class="text-xs uppercase font-semibold text-gray-500">Address:</label>
                             <p class="font-semibold"><%= data.address %></p> 
                         </div>
                         
                     </div>
                 </fieldset> 
                 <fieldset>
-                  <legend class="uppercase text-xs font-semibold text-gray-800 mb-3">Additional Information</legend>
+                  <legend class="uppercase text-sm font-bold text-blue-800 mb-3">Additional Information</legend>
                   <div class="grid">
                       <div class="mb-3">
-                        <label class="text-sm">Reports To:</label>
+                        <label class="text-xs uppercase font-semibold text-gray-500">Reports To:</label>
                         <p class="font-semibold"><%= data.reports_to %></p> 
                     </div>
                     <div class="mb-3">
-                      <label class="text-sm">Status:</label>
+                      <label class="text-xs uppercase font-semibold text-gray-500">Status:</label>
                       <p class="font-semibold text-green-500">Active</p> 
                   </div>
                       
@@ -78,14 +70,14 @@
                 </fieldset> 
 
                 <fieldset>
-                    <legend class="uppercase text-xs font-semibold text-gray-800 mb-3">Agent Codes</legend>
+                    <legend class="uppercase text-sm font-bold text-blue-800 mb-3">Agent Codes</legend>
                         <div class="mb-3">
-                            <label class="text-sm">TSYS:</label>
+                            <label class="text-xs uppercase font-semibold text-gray-500">TSYS:</label>
                             <p class="font-semibold"><%= data.codes.TSYS %></p>
                         </div>
                         
                         <div class="mb-3">
-                        <label class="text-sm">TriSource:</label>
+                        <label class="text-xs uppercase font-semibold text-gray-500">TriSource:</label>
                             <p class="font-semibold"><%= data.codes.TriSource %></p> 
                         </div>     
                 </fieldset> 
@@ -99,8 +91,7 @@
         </div>
     </div>
     <div id="schedulea" class="container mx-auto mt-4">
-      <div class="text-right mb-2 bg-gray-50 text-sm text-blue-600"><a href="#" class=""><i class="fas fa-plus-circle "></i> Add/Create A Schedule</a></div>
-      <h1 class="text-2xl pl-6 mb-2">Standard Agent</h1>
+      <h1 class="text-2xl pl-6 mb-2">Monthly Fees</h1>
       <table class=" min-w-full divide-y divide-gray-200">
         <thead>
           <tr>
@@ -138,7 +129,7 @@
         </tbody>
       </table>
 
-      <h1 class="text-2xl pl-6 mb-2 mt-4">Monthly Fees</h1>
+      <h1 class="text-2xl pl-6 mb-2 mt-4">Other Fees</h1>
       <table class=" min-w-full divide-y divide-gray-200">
         <thead>
           <tr>
@@ -175,12 +166,13 @@
           </tr>
         </tbody>
       </table>
+      <div class="mb-2 bg-gray-50 text-sm text-blue-600"><a href="#" class=""><i class="fas fa-plus-circle "></i> Create A Schedule</a></div>
     </div>
 
     
     <div id="commision" class="container mx-auto mt-3">
-      <h1 class="text-2xl pl-6 mb-2 mt-4">Commission Rates</h1>
-      <table class=" min-w-full divide-y divide-gray-200">
+      <!-- <h1 class="text-2xl pl-6 mb-2 mt-4">Commission Rates</h1> -->
+      <table class="mt-4 min-w-full divide-y divide-gray-200">
         <thead>
           <tr>
             <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">Commission Code</th>
@@ -228,6 +220,7 @@
         </tbody>
       </table>
     </div>
+    
 
     
 
