@@ -84,7 +84,10 @@
               <div class="mt-6 grid grid-cols-4">
                 <%  for(var i =0; i < agents.length; i++){ %>
                 <div class="max-w-sm rounded overflow-hidden shadow mr-5">
-                  <div class="<%= i === 1? 'bg-green-400' : 'bg-blue-400' %> w-full h-2"></div>
+                  <div class="<%= i === 1? 'bg-yellow-400' : 'bg-green-400' %> w-full h-2"></div>
+                  <% if(i === 1){ %>
+                    <i style="opacity: 0.3;" class="fas fa-crown float-right text-yellow-500 text-4xl px-3 py-3"></i>
+                  <% } %>
                   <div></div>
                     <div class="px-6 py-3">
                       <div class="font-bold text-xl mb-2">Agent <%= i + 1 %></div>
