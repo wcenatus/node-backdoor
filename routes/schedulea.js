@@ -21,11 +21,11 @@ router.get('/:id', function (req, res) {
     var data = null
 
     db.schedulea.forEach(template=>{
-        if(id === schedulea.id){
+        if(id === template.id){
             data = template
         }
     });
-    res.render('pages/schedulea_details', {
+    res.render('pages/scheduleadetails', {
         data: data
     })
 })

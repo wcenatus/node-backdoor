@@ -50,8 +50,9 @@ module.exports= {
             "commission_name": ["LF101","CF"],
             "platform":"TSYS",
             "agents":[
-                {"name":"Larry Fitzgerald", "rate":"0.050"},
-                {"name":"Chris Frey", "rate":"0.050"}
+                {"name":"Larry Fitzgerald", "rate":"0.50"},
+                {"name":"Chris Frey", "rate":"0.25"},
+                {"name":"Cam Newton", "rate":"0.25"}
             ],
             "active":true
         },
@@ -60,8 +61,8 @@ module.exports= {
             "commission_name": ["LF101","CF"],
             "platform":"TriSource",
             "agents":[
-                {"name":"Larry Fitzgerald", "rate":"0.050"},
-                {"name":"Chris Frey", "rate":"0.050"}
+                {"name":"Larry Fitzgerald", "rate":"0.50"},
+                {"name":"Chris Frey", "rate":"0.50"}
             ],
             "active":true
         },
@@ -70,8 +71,8 @@ module.exports= {
             "commission_name": ["CNF102","CF"],
             "platform":"TriSource",
             "agents":[
-                {"name":"Cam Newton", "rate":"0.050"},
-                {"name":"Chris Frey", "rate":"0.050"}
+                {"name":"Cam Newton", "rate":"0.50"},
+                {"name":"Chris Frey", "rate":"0.50"}
             ],
             "active":false
         },
@@ -80,8 +81,8 @@ module.exports= {
             "commission_name": ["CN102","CF"],
             "platform":"TSYS",
             "agents":[
-                {"name":"Cam Newton", "rate":"0.050"},
-                {"name":"Chris Frey", "rate":"0.050"}
+                {"name":"Cam Newton", "rate":"0.50"},
+                {"name":"Chris Frey", "rate":"0.50"}
             ],
             "active":true
         },
@@ -90,8 +91,8 @@ module.exports= {
             "commission_name": ["WC102","CF"],
             "platform":"TSYS",
             "agents":[
-                {"name":"Larry Fitzgerald", "rate":"0.050"},
-                {"name":"Chris Frey", "rate":"0.050"}
+                {"name":"Larry Fitzgerald", "rate":"0.50"},
+                {"name":"Chris Frey", "rate":"0.50"}
             ],
             "active":false
         }
