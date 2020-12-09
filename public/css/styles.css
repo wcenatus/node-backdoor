@@ -7,6 +7,9 @@
     color: white;
   
   } */
+  body{
+    padding-bottom: 30px;
+  }
   .simpleCircle [class*="fa fa-"] {
     
     background-color: rgb(25, 160, 43);
