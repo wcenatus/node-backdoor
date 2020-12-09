@@ -31,23 +31,18 @@ router.get('/:id', function (req, res) {
 })
 
 // Edit Schedule A 
-router.route('/edit/:id')
-  .get(function (req, res) {
-    var id = req.params.id
+router.get('/edit/:id', function (req, res) {
+  var id = req.params.id
     var data = null
 
-    db.agents.forEach(agent=>{
-        if(id === agent.agent_id){
-            data = agent
+    db.schedulea.forEach(template=>{
+        if(id === template.id){
+            data = template
         }
     });
-    
-    res.render('pages/edit_schedulea', {
+    res.render('pages/editschedulea', {
         data: data
     })
-  })
-  .patch(function (req, res){
-    //TODO When Schedule A is updated
-  })
+})
 
 module.exports = router
