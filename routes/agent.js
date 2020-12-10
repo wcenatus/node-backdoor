@@ -24,7 +24,8 @@ router.get('/:id', function (req, res) {
         }
     });
     res.render('pages/agentdetails', {
-        data: data
+        data: data,
+        location: 'agent'
     })
 })
 
@@ -41,7 +42,8 @@ router.route('/edit/:id')
     });
     
     res.render('pages/editagent', {
-        data: data
+        data: data,
+        location: 'agent'
     })
   })
   .patch(function (req, res){

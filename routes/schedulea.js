@@ -11,7 +11,8 @@ router.use(function timeLog (req, res, next) {
 
 router.get('/', function (req, res) {
     res.render('pages/schedulea', {
-        data: db.schedulea
+        data: db.schedulea,
+        location: 'schedulea'
     })
   })
 
@@ -26,7 +27,8 @@ router.get('/:id', function (req, res) {
         }
     });
     res.render('pages/scheduleadetails', {
-        data: data
+        data: data,
+        location: 'schedulea'
     })
 })
 
@@ -41,7 +43,8 @@ router.get('/edit/:id', function (req, res) {
         }
     });
     res.render('pages/editschedulea', {
-        data: data
+        data: data,
+        location: 'schedulea'
     })
 })
 

@@ -11,7 +11,8 @@ router.use(function timeLog (req, res, next) {
 
 router.get('/', function (req, res) {
     res.render('pages/commission', {
-        data: db.commission_rates
+        data: db.commission_rates,
+        location: 'commision'
     })
 })
 
@@ -29,7 +30,8 @@ router.get('/:id', function (req, res) {
     });
     res.render('pages/commissiondetails', {
         data: data,
-        agents: agents
+        agents: agents,
+        location: 'commision'
     })
 })
 
@@ -48,7 +50,8 @@ router.get('/edit/:id', function (req, res) {
     
     res.render('pages/editcommission', {
         data: data,
-        agents: agents
+        agents: agents,
+        location: 'commision'
     })
 })
 
