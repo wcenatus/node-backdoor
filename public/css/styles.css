@@ -62,16 +62,16 @@
   
 
 
-  li.active{
+  .tabs li.active{
     background-color:white;
     color: #2b6cb0;
     font-weight: 500;
   }
-  li.active:hover{
+  .tabs li.active:hover{
     background-color:white !important;
     color: #264770;
   }
-  li:hover{
+  .tabs li:hover{
     background-color: #264770;
   }
   /* .container{
@@ -80,7 +80,7 @@
   } */
 
 
-  a.active{
+  nav a.active{
     background-color: #1A202C;
   }
   

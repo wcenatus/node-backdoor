@@ -18,9 +18,7 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', async function(req,res){
-    res.render('pages/index',{
-        data:db.agents
-    })
+    return res.redirect('/agent');
 })
 
 app.listen(8080);

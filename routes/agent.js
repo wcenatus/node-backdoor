@@ -10,8 +10,11 @@ router.use(function timeLog (req, res, next) {
 })
 
 router.get('/', function (req, res) {
-    return res.redirect('/');
+  res.render('pages/index',{
+    data:db.agents,
+    location: 'agent'
   })
+})
 
 //Get Agent
 router.get('/:id', function (req, res) {
