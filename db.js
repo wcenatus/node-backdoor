@@ -47,52 +47,52 @@ module.exports= {
     commission_rates: [
         {
             "commission_code": "010001",
-            "commission_name": ["LF101","CF"],
+            "commission_name": ["LF101","BB"],
             "platform":"TSYS",
             "agents":[
                 {"name":"Larry Fitzgerald", "rate":"0.50"},
-                {"name":"Chris Frey", "rate":"0.25"},
+                {"name":"Bill Belichick", "rate":"0.25"},
                 {"name":"Cam Newton", "rate":"0.25"}
             ],
             "active":true
         },
         {
             "commission_code": "010002",
-            "commission_name": ["LF101","CF"],
+            "commission_name": ["LF101","BB"],
             "platform":"TriSource",
             "agents":[
                 {"name":"Larry Fitzgerald", "rate":"0.50"},
-                {"name":"Chris Frey", "rate":"0.50"}
+                {"name":"Bill Belichick", "rate":"0.50"}
             ],
             "active":true
         },
         {
             "commission_code": "010003",
-            "commission_name": ["CNF102","CF"],
+            "commission_name": ["CNF102","BB"],
             "platform":"TriSource",
             "agents":[
                 {"name":"Cam Newton", "rate":"0.50"},
-                {"name":"Chris Frey", "rate":"0.50"}
+                {"name":"Bill Belichick", "rate":"0.50"}
             ],
             "active":false
         },
         {
             "commission_code": "010004",
-            "commission_name": ["CN102","CF"],
+            "commission_name": ["CN102","BB"],
             "platform":"TSYS",
             "agents":[
                 {"name":"Cam Newton", "rate":"0.50"},
-                {"name":"Chris Frey", "rate":"0.50"}
+                {"name":"Bill Belichick", "rate":"0.50"}
             ],
             "active":true
         },
         {
             "commission_code": "010005",
-            "commission_name": ["WC102","CF"],
+            "commission_name": ["WC102","BB"],
             "platform":"TSYS",
             "agents":[
                 {"name":"Larry Fitzgerald", "rate":"0.50"},
-                {"name":"Chris Frey", "rate":"0.50"}
+                {"name":"Bill Belichick", "rate":"0.50"}
             ],
             "active":false
         }

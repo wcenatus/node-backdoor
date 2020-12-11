@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
-<div class="header bg-purple-500">
+<div class="header bg-blue-500">
   <div id="header-container" class="container mx-auto">
     <p class="text-5xl text-white text-bottom"><strong><%= data.name %></strong></p>
   </div>
 </div>
-<div class="w-100 h-10 bg-purple-800">
+<div class="w-100 h-10 bg-blue-800">
   <div class="container mx-auto">
     <ul class='tabs flex cursor-pointer'>
       <li class='text-white py-2 px-6 active'><a>Edit</a></li>
@@ -25,7 +25,6 @@
 
 
       </form>
-
     </div>
   </div>
 
@@ -117,7 +116,6 @@
 
     </tbody>
   </table>
-
   <!-- Other Fees Table -->
   <h1 class="text-2xl pl-6 mb-2 mt-4">Other Fees</h1>
   <table class=" min-w-full divide-y divide-gray-200">
@@ -248,7 +246,7 @@
     $('#form2-button:last').after(`
     <div class="grid grid-cols-7 form${counter} gap-4">
           <div class="mb-3 pt-0">
-            <select type="text" value="<%= data.phone %>"
+            <select type="text" value=""
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
               <option value="" disabled selected>Select fee item</option>
               <option>Monthly Fees</option>
@@ -257,7 +255,7 @@
             </select>
           </div>
           <div class="mb-3 pt-0">
-            <select type="text" placeholder="Enter Component Name"" value=" <%= data.phone %>"
+            <select type="text" placeholder="Enter Component Name"" value=" "
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
               <option value="" disabled selected>Select component</option>
               <option>Monthly Service Fee</option>
@@ -266,15 +264,15 @@
             </select>
           </div>
           <div class="mb-3 pt-0">
-            <input type="text" placeholder="Enter Buy Rate" value="<%= data.phone %>"
+            <input type="text" placeholder="Enter Buy Rate" value=""
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
           </div>
           <div class="mb-3 pt-0">
-            <input type="text" placeholder="Enter Revenue Rate" value="<%= data.phone %>"
+            <input type="text" placeholder="Enter Revenue Rate" value=""
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
           </div>
           <div class="mb-3 pt-0">
-            <input type="text" placeholder="Enter Max Rate" value="<%= data.phone %>"
+            <input type="text" placeholder="Enter Max Rate" value=""
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
           </div>
           <div class="mb-3 pt-0">
@@ -295,4 +293,4 @@
   })
 
 </script>
-<%- include('../partials/footer') %>
+<%- include('../partials/footer') %></script>

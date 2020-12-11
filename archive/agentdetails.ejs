@@ -88,25 +88,25 @@
 <!-- Schedule A Tab -->
 <div id="schedulea" class="container mx-auto mt-4">
 
+  <a href="/agent/edit/<%= data.agent_id %>"
+    class=" mb-4 text-base mt-5 flex justify-center px-4 py-2 rounded font-bold cursor-pointer bg-blue-100 text-blue-700 border border-blue-600 ">
+    <p><i class="fas fa-plus pr-2"></i>Add Fee Item</p>
+  </a>
+
   <!-- Monthly Fees table -->
   <h1 class="text-2xl pl-6 mb-2">Monthly Fees</h1>
   <table class=" min-w-full divide-y divide-gray-200">
     <thead>
       <tr>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Component</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Buy Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Revenue Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Max Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Passthrough</th>
         <th></th>
       </tr>
@@ -135,6 +135,55 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
       </tr>
+
+      <tr id="componentform">
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+          <select type="text" placeholder="Enter Component Name"
+            class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
+            <option>Monthly Service Fee</option>
+            <option>Regular Monthly Fee</option>
+            <option>Regulatory Bundle Monthly Fee</option>
+          </select>
+        </td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+          <input type="text" placeholder="Enter Buy Rate"
+            class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+        </td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+          <input type="text" placeholder="Enter Revenue Rate"
+            class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+        </td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+          <input type="text" placeholder="Enter Max Rate"
+            class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+        </td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+          <select placeholder="Enter Passthrough"
+            class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
+            <option>True</option>
+            <option>False</option>
+          </select>
+        </td>
+        <td>
+          <a id="savecomponent-btn" class="text-base w-32 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+                hover:bg-green-700 hover:text-green-100 
+                bg-green-100 
+                text-green-700 
+                border duration-400 ease-in-out 
+                border-green-600 transition "> Save</a>
+        </td>
+      </tr>
+
+      <tr id="componentrow">
+        <td id="addcomponent-btn" class="px-6 py-4 whitespace-no-wrap text-base leading-5">
+          <div class="text-blue-600"><a href="#" class=""><i class="fas fa-plus-circle "></i> Add schedule component</a>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
 
@@ -143,20 +192,15 @@
   <table class=" min-w-full divide-y divide-gray-200">
     <thead>
       <tr>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Component</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Buy Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Revenue Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Max Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Passthrough</th>
       </tr>
     </thead>
@@ -183,6 +227,16 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+      </tr>
+      <tr>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5">
+          <div class="text-blue-600"><a href="#" class=""><i class="fas fa-plus-circle "></i> Add schedule component</a>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -192,20 +246,15 @@
   <table class=" min-w-full divide-y divide-gray-200">
     <thead>
       <tr>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Component</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Buy Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Revenue Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Max Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
           Passthrough</th>
       </tr>
     </thead>
@@ -234,17 +283,20 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
       </tr>
 
+      <tr>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5">
+          <div class="text-blue-600"><a href="#" class=""><i class="fas fa-plus-circle "></i> Add schedule component</a>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
     </tbody>
   </table>
-
-  <a href="/agent/edit/schedulea/<%= data.agent_id %>" class="text-sm mt-5 w-32 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
-          hover:bg-blue-700 hover:text-blue-100 
-          bg-blue-100 
-          text-blue-700 
-          border duration-400 ease-in-out 
-          border-blue-600 transition "> Edit</a>
 </div>
-
 
 <!-- Commission Tab -->
 <div id="commision" class="container mx-auto mt-3">
@@ -303,12 +355,6 @@
       </tr>
     </tbody>
   </table>
-  <a href="/agent/edit/schedule" class="text-sm mt-5 w-32 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
-    hover:bg-blue-700 hover:text-blue-100 
-    bg-blue-100 
-    text-blue-700 
-    border duration-400 ease-in-out 
-    border-blue-600 transition "> Edit</a>
 </div>
 
 

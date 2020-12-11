@@ -31,6 +31,20 @@ router.get('/:id', function (req, res) {
         location: 'agent'
     })
 })
+router.get('/edit/schedulea/:id', function (req, res) {
+  var id = req.params.id
+    var data = null
+
+    db.agents.forEach(agent=>{
+        if(id === agent.agent_id){
+            data = agent
+        }
+    });
+    res.render('pages/agent_editschedulea', {
+        data: data,
+        location: 'agent'
+    })
+})
 
 // Edit Agent 
 router.route('/edit/:id')
