@@ -1,13 +1,18 @@
 <%- include('../partials/header') %>
 <div class="header bg-gradient-to-r from-blue-500 to-blue-600">
   <div id="header-container" class="container mx-auto">
-    <p class="text-5xl text-white text-bottom"><strong> Agents </strong></p>
+    <p class="text-5xl text-white text-bottom inline-block"><strong> Agents </strong></p>
+    <a href="#" class="inline-block ml-4">
+      <div class="circle shadow-md bg-blue-700">
+        <div>
+          <i class="block fas fa-plus text-2xl"></i>
+          <!-- <p class="block text-sm">Add Schedule</p> -->  
+        </div>              
+      </div>
+    </a>
   </div>
 </div>
 <div class="container mx-auto">
-  <a href="/agent/add/ %>" class="text-base mt-5 w-40 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer bg-blue-700 text-white "> 
-    <p class="text-sm"><i class="block fas fa-plus"></i> Add Agent</p>
-  </a>
   <div class="container py-5 mx-auto mb-5 grid grid-cols-12 gap-4">
 
     <div class="col-span-12">
