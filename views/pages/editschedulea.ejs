@@ -26,10 +26,15 @@
           <div class=" pt-0">
             <select type="text" value="<%= data.phone %>"
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
-              <option value="" disabled selected>Select fee item</option>
-              <option>Monthly Fees</option>
-              <option>Other Fees</option>
-              <option>Monthly Fees</option>
+              <optgroup>
+                <option value="" disabled selected>Select fee item</option>
+                <option>Monthly Fees</option>
+                <option>Other Fees</option>
+                <option>Monthly Fees</option>
+              </optgroup>
+              <optgroup>
+                <option>Add Category</option>
+            </optgroup>
             </select>
           </div>
           <div class=" pt-0">
