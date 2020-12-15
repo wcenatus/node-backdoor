@@ -16,6 +16,12 @@ router.get('/', function (req, res) {
     })
   })
 
+router.get('/create', function (req, res) {
+    res.render('pages/schedulea_create', {
+        location: 'schedulea'
+    })
+  })
+  
 //Get Schedule A
 router.get('/:id', function (req, res) {
   var id = req.params.id
@@ -26,7 +32,7 @@ router.get('/:id', function (req, res) {
             data = template
         }
     });
-    res.render('pages/scheduleadetails', {
+    res.render('pages/schedulea_details', {
         data: data,
         location: 'schedulea'
     })
@@ -42,7 +48,7 @@ router.get('/edit/:id', function (req, res) {
             data = template
         }
     });
-    res.render('pages/editschedulea', {
+    res.render('pages/schedulea_edit', {
         data: data,
         location: 'schedulea'
     })

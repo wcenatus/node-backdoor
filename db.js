@@ -11,7 +11,13 @@ module.exports= {
             "reports_to": "Christopher Dibenedetto",
             "phone":"(516)123-4567 x1619",
             "mobile":"(203)123-4567",
-            "address":"6900 Jericho Turnpike, Syosset, NY 11791",
+            "address":{
+                "street": "6900 Jericho Turnpike",
+                "city": "Syosset",
+                "state": "NY",
+                "zipcode":"11791",
+                "country":"United States"
+            },
             "active": true   
         },
         {
@@ -25,7 +31,13 @@ module.exports= {
             "reports_to": "Kliff Kingsbury",
             "phone":"(516)123-4567 x1619",
             "mobile":"(203)123-4567",
-            "address":"6900 Jericho Turnpike, Syosset, NY 11791",
+            "address":{
+                "street": "6900 Jericho Turnpike",
+                "city": "Syosset",
+                "state": "NY",
+                "zipcode":"11791",
+                "country":"United States"
+            },
             "active": false   
         },
         {
@@ -39,7 +51,13 @@ module.exports= {
             "reports_to": "Bill Belichick",
             "phone":"(516)123-4567 x1619",
             "mobile":"(203)123-4567",
-            "address":"6900 Jericho Turnpike, Syosset, NY 11791",
+            "address":{
+                "street": "6900 Jericho Turnpike",
+                "city": "Syosset",
+                "state": "NY",
+                "zipcode":"11791",
+                "country":"United States"
+            },
             "active": true   
         }
       ],

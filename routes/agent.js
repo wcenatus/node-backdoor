@@ -16,6 +16,12 @@ router.get('/', function (req, res) {
   })
 })
 
+router.get('/create', function (req, res) {
+  res.render('pages/agent_create',{
+    location: 'agent'
+  })
+})
+
 //Get Agent
 router.get('/:id', function (req, res) {
   var id = req.params.id
@@ -26,7 +32,7 @@ router.get('/:id', function (req, res) {
             data = agent
         }
     });
-    res.render('pages/agentdetails', {
+    res.render('pages/agent_details', {
         data: data,
         location: 'agent'
     })
@@ -58,7 +64,7 @@ router.route('/edit/:id')
         }
     });
     
-    res.render('pages/editagent', {
+    res.render('pages/agent_edit', {
         data: data,
         location: 'agent'
     })

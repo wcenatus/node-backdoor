@@ -13,6 +13,7 @@
 
 </div>
 
+
 <div class="container mx-auto mt-6 ">
   <div id="schedulea" class="container mx-auto mt-4">
 
@@ -20,51 +21,52 @@
       class="text-base mb-2 mt-5 px-2 py-2 rounded font-bold cursor-pointer text-blue-700">
       <p><i class="fas fa-plus pr-2"></i>Add schedule component</p>
     </a>
-    <div id="form2" class="container bg-gray-200 py-4 px-4">
+    <div id="form2" class="container rounded bg-gray-200 py-4 px-4 mb-3">
       <form id="addcomponent">
         <div class="grid grid-cols-7 form gap-4">
-          <div class=" pt-0">
-            <input type="text" list="cityname" placeholder="Category" class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
-            <datalist id="cityname">
-              <optgroup>
-                <option value="" disabled selected>Select Category</option>
+
+          <div class="pt-0 form-textfield" >
+            <input id="category-input" type="text" placeholder="New Category"
+              class="px-3 py-3 border-solid border-2 border-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+          </div>
+          <div class="form-dropdown pt-0">
+            <select type="text"
+              class=" px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
+                <option disabled selected>Select Category</option>
                 <option>Monthly Fees</option>
                 <option>Other Fees</option>
                 <option>Monthly Fees</option>
               </optgroup>
-            </datalist>
-            <!-- <select type="text" value="<%= data.phone %>"
-              class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
-              <optgroup>
-                <option value="" disabled selected>Select Category</option>
-                <option>Monthly Fees</option>
-                <option>Other Fees</option>
-                <option>Monthly Fees</option>
-              </optgroup>
-              <optgroup>
                 <option>Add Category</option>
               </optgroup>
-            </select> -->
+            </select>
           </div>
-          <div class=" pt-0">
-            <select type="text" placeholder="Enter Component Name"" value=" <%= data.phone %>"
-              class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
+
+          <div class="pt-0 form-textfield" id="">
+            <input type="text" placeholder="New Component"
+              class="px-3 py-3 border-solid border-2 border-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+          </div>
+          <div class="form-dropdown pt-0">
+            <select type="text" placeholder="Enter Component Name" 
+              class=" px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
               <option value="" disabled selected>Component</option>
               <option>Monthly Service Fee</option>
               <option>Regular Monthly Fee</option>
               <option>Regulatory Bundle Monthly Fee</option>
             </select>
           </div>
+
+
           <div class=" pt-0">
-            <input type="text" placeholder="Buy Rate" value="<%= data.phone %>"
+            <input type="text" placeholder="Buy Rate"
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
           </div>
           <div class=" pt-0">
-            <input type="text" placeholder="Revenue Rate" value="<%= data.phone %>"
+            <input type="text" placeholder="Revenue Rate"
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
           </div>
           <div class=" pt-0">
-            <input type="text" placeholder="Max Rate" value="<%= data.phone %>"
+            <input type="text" placeholder="Max Rate"
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
           </div>
           <div class=" pt-0">
@@ -174,7 +176,6 @@
 
     </tbody>
   </table>
-
   <!-- Other Fees Table -->
   <h1 class="text-2xl pl-6 mb-2 mt-4">Other Fees</h1>
   <table class=" min-w-full divide-y divide-gray-200">
@@ -282,8 +283,20 @@
 
 <script>
 
+  $('.form-textfield').hide()
+  $('#form2').hide()
+  $('.form-dropdown').on('change',function(e){
+    var optionSelected = $("option:selected", this);
+    var valueSelected = this.value;
+    console.log(optionSelected[0].innerText)
+    if(optionSelected[0].text === "Add Category"){
+      $('.form-dropdown').hide()
+      $('.form-textfield').toggle()
+      $('#category-input').focus()
 
-  
+    }
+   
+  })  
   $('#form2-button, #form2-save').click(function () {
     $('#form2').toggle()
   })
@@ -295,13 +308,9 @@
 
 
   $('#componentform').hide()
-  $("#addcomponent-btn").click(function () {
+  $("#addcomponent-btn, #savecomponent-btn").click(function () {
     $('#componentrow').toggle()
-    // $('#componentform').toggle()
-  })
-  var counter = 0
-  $('#form2-button').click(function(){
+    $('#componentform').toggle()
   })
 
 </script>
-<%- include('../partials/footer') %>

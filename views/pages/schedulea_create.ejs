@@ -1,21 +1,34 @@
 <%- include('../partials/header') %>
-<div class="header bg-blue-500">
-  <div id="header-container" class="container mx-auto">
-    <p class="text-5xl text-white text-bottom"><strong><%= data.name %></strong></p>
-  </div>
-</div>
-<div class="w-100 h-10 bg-blue-800">
-  <div class="container mx-auto">
-    <ul class='tabs flex cursor-pointer'>
-      <li class='text-white py-2 px-6 active'><a>Edit</a></li>
-    </ul>
-  </div>
 
+
+<div class="header bg-gradient-to-r from-blue-500 to-blue-600">
+    <div id="header-container" class="container mx-auto">
+      <p class="text-5xl text-white text-bottom"><strong>Create Schedule A</strong></p>
+    </div>
 </div>
+
+<div class="w-100 h-10 bg-blue-800">
+    <div class="container mx-auto">
+        <ul class='tabs flex cursor-pointer'>
+            <li onclick="changeTab(1)" class='text-white py-2 px-6 active'><a>Create Schedule</a></li>
+        </ul>
+    </div>
+</div>
+
 
 <div class="container mx-auto mt-6 ">
   <div id="schedulea" class="container mx-auto mt-4">
-
+    <!-- <div class="col-span-12">
+      <div class="bg-white shadow p-4 flex rounded border border-gray-200">
+        <span class="w-auto flex justify-end items-center text-gray-500 p-2">
+          <i class="fas fa-search text-2xl"></i>
+        </span>
+        <input autocomplete="off" id="search" class="w-full rounded p-2 outline-none" type="text" placeholder="Search by Agent ID, Name, or TSYS/Trisource Code">
+      </div>
+    </div> -->
+    <div class="mb-3 pt-0">
+      <input type="text" placeholder="Name" class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+    </div>
     <a id="form2-button"
       class="text-base mb-2 mt-5 px-2 py-2 rounded font-bold cursor-pointer text-blue-700">
       <p><i class="fas fa-plus pr-2"></i>Add schedule component</p>
@@ -88,7 +101,7 @@
   </div>
 
   <!-- Monthly Fees table -->
-  <h1 class="text-2xl pl-6 mb-2">Monthly Fees</h1>
+  <!-- <h1 class="text-2xl pl-6 mb-2">Monthly Fees</h1>
   <table class=" min-w-full divide-y divide-gray-200">
     <thead>
       <tr>
@@ -175,107 +188,7 @@
 
     </tbody>
   </table>
-  <!-- Other Fees Table -->
-  <h1 class="text-2xl pl-6 mb-2 mt-4">Other Fees</h1>
-  <table class=" min-w-full divide-y divide-gray-200">
-    <thead>
-      <tr>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Component</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Buy Rate</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Revenue Rate</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Max Rate</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Passthrough</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
-      </tr>
-
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
-      </tr>
-
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- Processing Fee Table -->
-  <h1 class="text-2xl pl-6 mb-2 mt-4">Processing Fees</h1>
-  <table class=" min-w-full divide-y divide-gray-200">
-    <thead>
-      <tr>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Component</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Buy Rate</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Revenue Rate</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Max Rate</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Passthrough</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
-      </tr>
-
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
-      </tr>
-
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
-      </tr>
-
-    </tbody>
-  </table>
-</div>
+</div> -->
 
 
 </div>
@@ -313,4 +226,3 @@
   })
 
 </script>
-<%- include('../partials/footer') %></script>

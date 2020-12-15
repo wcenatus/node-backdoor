@@ -16,6 +16,12 @@ router.get('/', function (req, res) {
     })
 })
 
+router.get('/create', function (req, res) {
+    res.render('pages/commission_create', {
+        location: 'commission'
+    })
+})
+
 router.get('/:id', function (req, res) {
     var id = req.params.id
     var data = null
@@ -28,7 +34,7 @@ router.get('/:id', function (req, res) {
             agents = commission.agents
         }
     });
-    res.render('pages/commissiondetails', {
+    res.render('pages/commission_details', {
         data: data,
         agents: agents,
         location: 'commission'
@@ -48,7 +54,7 @@ router.get('/edit/:id', function (req, res) {
         }
     });
     
-    res.render('pages/editcommission', {
+    res.render('pages/commission_edit', {
         data: data,
         agents: agents,
         location: 'commission'

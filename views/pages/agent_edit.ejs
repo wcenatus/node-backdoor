@@ -1,0 +1,332 @@
+<%- include('../partials/header') %>
+<div class="header bg-gradient-to-r from-blue-500 to-blue-600">
+  <div id="header-container" class="container mx-auto">
+    <p class="text-5xl text-white text-bottom"><strong><%= data.name %></strong></p>
+  </div>
+</div>
+<div class="w-100 h-10 bg-blue-800">
+  <div class="container mx-auto">
+    <ul class='tabs flex cursor-pointer'>
+      <li onclick="changeTab(1)" class='text-white py-2 px-6 active'><a>Edit</a></li>
+    </ul>
+  </div>
+
+</div>
+<div class="container mx-auto pt-5">
+  <!-- <div class="w-100 h-10 bg-blue-800"> 
+
+      </div> -->
+
+  <div id="details" class=" py-3 px-3">
+    <!-- <p class="text-3xl mb-5 font-medium inline-block ">Wesley Cenatus </p> <div class="simpleCircle inline-block"><a href='./commission.html'><i class="fa fa-dollar-sign"></i></a></div> -->
+    <div class="grid grid-cols-3 gap-4">
+      <fieldset>
+        <legend class="uppercase text-base font-bold text-blue-800 mb-3 mt-4">Basic Information</legend>
+          <div class="mb-3">
+            <label class="text-xs uppercase font-semibold text-gray-500">Email:</label>
+            <div class="mb-3 pt-0">
+              <input type="text" placeholder="Enter Platform" value="<%= data.email %>"
+                class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="text-xs uppercase font-semibold text-gray-500">Phone:</label>
+            <div class="mb-3 pt-0">
+              <input type="text" placeholder="Enter Platform" value="<%= data.phone %>"
+                class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="text-xs uppercase font-semibold text-gray-500">Mobile:</label>
+            <div class="mb-3 pt-0">
+              <input type="text" placeholder="Enter Platform" value="<%= data.mobile %>"
+                class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+            </div>
+          </div>
+          <br/>
+          <div class="mb-3">
+            <label class="text-xs uppercase font-semibold text-gray-500">Street Address:</label>
+            <div class="mb-3 pt-0">
+              <input type="text" placeholder="Enter Platform" value="<%= data.address.street %>"
+                class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="text-xs uppercase font-semibold text-gray-500">City:</label>
+                    <div class="mb-3 pt-0">
+                        <input value="<%= data.address.city %>" type="text" class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+                    </div>
+                </div>
+                <div>
+                    <label class="text-xs uppercase font-semibold text-gray-500">State:</label>
+                    <div class="mb-3 pt-0">
+                        <select value="<%= data.address.state %>" type="text" class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
+                            <option>NY</option>
+                            <option>NJ</option>
+                            <option>CT</option>   
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="text-xs uppercase font-semibold text-gray-500">Zip Code:</label>
+                    <div class="mb-3 pt-0">
+                        <input value="<%= data.address.zipcode %>" type="text" class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+                    </div>
+                </div>
+                <div>
+                    <label class="text-xs uppercase font-semibold text-gray-500">Country:</label>
+                    <div class="mb-3 pt-0">
+                        <select value="<%= data.address.country %>" type="text" class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
+                            <option> United States</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+          </div>
+        
+      </fieldset>
+
+      <fieldset>
+        <legend class="uppercase text-base font-bold text-blue-800 mb-3 mt-4">Agent Codes</legend>
+        <div class="mb-3">
+          <label class="text-xs uppercase font-semibold text-gray-500">TSYS:</label>
+          <div class="mb-3 pt-0">
+            <input type="text" placeholder="Enter Platform" value="<%= data.codes.TSYS %>"
+              class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="text-xs uppercase font-semibold text-gray-500">TriSource:</label>
+          <div class="mb-3 pt-0">
+            <input type="text" placeholder="Enter Platform" value="<%= data.codes.TriSource %>"
+              class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="uppercase text-base font-bold text-blue-800 mb-3 mt-4">Additional Information</legend>
+          <div class="mb-3">
+            <label class="text-xs uppercase font-semibold text-gray-500">Reports To:</label>
+            <div class="mb-3 pt-0">
+              <input type="text" placeholder="Enter Platform" value="<%= data.reports_to %>"
+                class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+            </div>
+          </div>
+          <div class="mb-3">
+
+            <label class="text-xs uppercase font-semibold text-gray-500">Status:</label>
+            <br />
+            <label class="inline-flex items-center mt-3">
+              <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-600" checked><span
+                class="ml-2 text-gray-700">Is Active?</span>
+            </label>
+          </div>
+      </fieldset>
+    </div>
+    <a href="/agent/<%= data.agent_id %>" class="text-base mt-5 w-32 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+            hover:bg-blue-700 hover:text-blue-100 
+            bg-blue-100 
+            text-blue-700 
+            border duration-400 ease-in-out 
+            border-blue-600 transition "> Save</a>
+  </div>
+</div>
+<div id="schedulea" class="container mx-auto mt-4">
+  <h1 class="text-2xl pl-6 mb-2">Monthly Fees</h1>
+  <table class=" min-w-full divide-y divide-gray-200">
+    <thead>
+      <tr>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Component</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Buy Rate</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Revenue Rate</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Max Rate</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Passthrough</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+      </tr>
+
+      <tr>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+      </tr>
+
+      <tr>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1 class="text-2xl pl-6 mb-2 mt-4">Other Fees</h1>
+  <table class=" min-w-full divide-y divide-gray-200">
+    <thead>
+      <tr>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Component</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Buy Rate</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Revenue Rate</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Max Rate</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Passthrough</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+      </tr>
+
+      <tr>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+      </tr>
+
+      <tr>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="mb-2 bg-gray-50 text-base text-blue-600"><a href="#" class=""><i class="fas fa-plus-circle "></i> Create A
+      Schedule</a></div>
+</div>
+
+
+<div id="commision" class="container mx-auto mt-3">
+  <!-- <h1 class="text-2xl pl-6 mb-2 mt-4">Commission Rates</h1> -->
+  <table class="mt-4 min-w-full divide-y divide-gray-200">
+    <thead>
+      <tr>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Commission Code</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Agent Rate</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Commission Name</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Profit Manager</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Platform</th>
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+          Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class='clickable-row cursor-pointer hover:bg-blue-100' data-href='/commission/010001'>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">010001</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 font-medium">0.050</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">XX123,CF</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Chris Frey</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">TSYS</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+          <span
+            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+        </td>
+      </tr>
+      <tr class='clickable-row cursor-pointer hover:bg-blue-100' data-href='/commission/010002'>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">010002</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 font-medium">0.050</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">XX123,CF</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Chris Frey</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">TSYS</td>
+
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+          <span
+            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+        </td>
+      </tr>
+      <tr class='clickable-row cursor-pointer hover:bg-blue-100' data-href='/commission/010003'>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">010003</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 font-medium">0.050</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">XX123,CF</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Chris Frey</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">TSYS</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+          <span
+            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<script>
+  $(".clickable-row").click(function () {
+    window.location = $(this).data("href");
+  });
+
+  $(function () {
+    $('ul.tabs li').click(function () {
+      if (!$(this).hasClass("active")) {
+        $(".active").removeClass("active")
+        $(this).addClass("active")
+      } else {
+        return false;//this prevents flicker
+      }
+    });
+  })
+
+  $('#schedulea').hide()
+  $('#commision').hide()
+  function changeTab(tab) {
+    if (tab === 1) {
+      $('#details').show()
+      $('#schedulea').hide()
+      $('#commision').hide()
+    } else if (tab === 2) {
+      $('#details').hide()
+      $('#schedulea').show()
+      $('#commision').hide()
+    } else if (tab === 3) {
+      $('#details').hide()
+      $('#schedulea').hide()
+      $('#commision').show()
+    }
+
+  }
+</script>
+
+<%- include('../partials/footer') %>
