@@ -24,38 +24,47 @@
       <form id="addcomponent">
         <div class="grid grid-cols-7 form gap-4">
           <div class=" pt-0">
-            <select type="text" value="<%= data.phone %>"
+            <input type="text" list="cityname" placeholder="Category" class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
+            <datalist id="cityname">
+              <optgroup>
+                <option value="" disabled selected>Select Category</option>
+                <option>Monthly Fees</option>
+                <option>Other Fees</option>
+                <option>Monthly Fees</option>
+              </optgroup>
+            </datalist>
+            <!-- <select type="text" value="<%= data.phone %>"
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
               <optgroup>
-                <option value="" disabled selected>Select fee item</option>
+                <option value="" disabled selected>Select Category</option>
                 <option>Monthly Fees</option>
                 <option>Other Fees</option>
                 <option>Monthly Fees</option>
               </optgroup>
               <optgroup>
                 <option>Add Category</option>
-            </optgroup>
-            </select>
+              </optgroup>
+            </select> -->
           </div>
           <div class=" pt-0">
             <select type="text" placeholder="Enter Component Name"" value=" <%= data.phone %>"
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full">
-              <option value="" disabled selected>Select component</option>
+              <option value="" disabled selected>Component</option>
               <option>Monthly Service Fee</option>
               <option>Regular Monthly Fee</option>
               <option>Regulatory Bundle Monthly Fee</option>
             </select>
           </div>
           <div class=" pt-0">
-            <input type="text" placeholder="Enter Buy Rate" value="<%= data.phone %>"
+            <input type="text" placeholder="Buy Rate" value="<%= data.phone %>"
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
           </div>
           <div class=" pt-0">
-            <input type="text" placeholder="Enter Revenue Rate" value="<%= data.phone %>"
+            <input type="text" placeholder="Revenue Rate" value="<%= data.phone %>"
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
           </div>
           <div class=" pt-0">
-            <input type="text" placeholder="Enter Max Rate" value="<%= data.phone %>"
+            <input type="text" placeholder="Max Rate" value="<%= data.phone %>"
               class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
           </div>
           <div class=" pt-0">
