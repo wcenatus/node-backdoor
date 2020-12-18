@@ -68,9 +68,9 @@ module.exports= {
             "commission_name": ["LF101","BB"],
             "platform":"TSYS",
             "agents":[
-                {"name":"Larry Fitzgerald", "rate":"0.50"},
-                {"name":"Bill Belichick", "rate":"0.25"},
-                {"name":"Cam Newton", "rate":"0.25"}
+                {"name":"Larry Fitzgerald", "rate":"50%"},
+                {"name":"Bill Belichick", "rate":"25%"},
+                {"name":"Cam Newton", "rate":"25%"}
             ],
             "active":true
         },
@@ -79,8 +79,8 @@ module.exports= {
             "commission_name": ["LF101","BB"],
             "platform":"TriSource",
             "agents":[
-                {"name":"Larry Fitzgerald", "rate":"0.50"},
-                {"name":"Bill Belichick", "rate":"0.50"}
+                {"name":"Larry Fitzgerald", "rate":"50%"},
+                {"name":"Bill Belichick", "rate":"50%"}
             ],
             "active":true
         },
@@ -89,8 +89,8 @@ module.exports= {
             "commission_name": ["CNF102","BB"],
             "platform":"TriSource",
             "agents":[
-                {"name":"Cam Newton", "rate":"0.50"},
-                {"name":"Bill Belichick", "rate":"0.50"}
+                {"name":"Cam Newton", "rate":"50%"},
+                {"name":"Bill Belichick", "rate":"50%"}
             ],
             "active":false
         },
@@ -99,8 +99,8 @@ module.exports= {
             "commission_name": ["CN102","BB"],
             "platform":"TSYS",
             "agents":[
-                {"name":"Cam Newton", "rate":"0.50"},
-                {"name":"Bill Belichick", "rate":"0.50"}
+                {"name":"Cam Newton", "rate":"50%"},
+                {"name":"Bill Belichick", "rate":"50%"}
             ],
             "active":true
         },
@@ -109,8 +109,8 @@ module.exports= {
             "commission_name": ["WC102","BB"],
             "platform":"TSYS",
             "agents":[
-                {"name":"Larry Fitzgerald", "rate":"0.50"},
-                {"name":"Bill Belichick", "rate":"0.50"}
+                {"name":"Larry Fitzgerald", "rate":"50%"},
+                {"name":"Bill Belichick", "rate":"50%"}
             ],
             "active":false
         }
