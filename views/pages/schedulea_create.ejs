@@ -27,12 +27,18 @@
       </div>
     </div> -->
     <div class="mb-3 pt-0">
-      <input type="text" placeholder="Name" class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+      <input type="text" placeholder="Name" class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-1/2" />
     </div>
+    
     <a id="form2-button"
       class="text-base mb-2 mt-5 px-2 py-2 rounded font-bold cursor-pointer text-blue-700">
-      <p><i class="fas fa-plus pr-2"></i>Add schedule component</p>
+      <p><i class="fas fa-plus pr-2"></i>Add schedule element</p>
     </a>
+    <a id="form2-hide"
+      class="text-base mb-2 mt-5 px-2 py-2 rounded font-bold cursor-pointer text-blue-700">
+      <p><i class="fas fa-minus pr-2"></i>Hide form</p>
+    </a>
+
     <div id="form2" class="container rounded bg-gray-200 py-4 px-4 mb-3">
       <form id="addcomponent">
         <div class="grid grid-cols-7 form gap-4">
@@ -126,7 +132,7 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
       </tr>
 
       <tr>
@@ -136,7 +142,7 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
       </tr>
 
       <tr id="form2-testrow">
@@ -146,7 +152,7 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
       </tr>
 
       <tr id="componentform">
@@ -197,6 +203,8 @@
 
   $('.form-textfield').hide()
   $('#form2').hide()
+  $('#form2-hide').hide()
+
   $('.form-dropdown').on('change',function(e){
     var optionSelected = $("option:selected", this);
     var valueSelected = this.value;
@@ -209,8 +217,11 @@
     }
    
   })  
+  $('#form2-hide').click(function(){
+    $('#form2-hide, #form2-button, #form2').toggle()
+  })
   $('#form2-button, #form2-save').click(function () {
-    $('#form2').toggle()
+    $('#form2-hide, #form2-button, #form2').toggle()
   })
 
   // $('#form2-testrow').hide()

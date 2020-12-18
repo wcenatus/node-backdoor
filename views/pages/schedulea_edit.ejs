@@ -19,8 +19,13 @@
 
     <a id="form2-button"
       class="text-base mb-2 mt-5 px-2 py-2 rounded font-bold cursor-pointer text-blue-700">
-      <p><i class="fas fa-plus pr-2"></i>Add schedule component</p>
+      <p><i class="fas fa-plus pr-2"></i>Add schedule element</p>
     </a>
+    <a id="form2-hide"
+      class="text-base mb-2 mt-5 px-2 py-2 rounded font-bold cursor-pointer text-blue-700">
+      <p><i class="fas fa-minus pr-2"></i>Hide form</p>
+    </a>
+
     <div id="form2" class="container rounded bg-gray-200 py-4 px-4 mb-3">
       <form id="addcomponent">
         <div class="grid grid-cols-7 form gap-4">
@@ -107,35 +112,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
-      </tr>
 
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
-      </tr>
-
-      <tr id="form2-testrow">
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
-      </tr>
 
       <tr id="componentform">
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
@@ -147,20 +124,20 @@
           </select>
         </td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
-          <input type="text" placeholder="Enter Buy Rate"
+          <input type="text" placeholder="Enter Buy Rate" value="5.00"
             class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
         </td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
-          <input type="text" placeholder="Enter Revenue Rate"
+          <input type="text" placeholder="Enter Revenue Rate" value="0.5"
             class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
         </td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
-          <input type="text" placeholder="Enter Max Rate"
+          <input type="text" placeholder="Enter Max Rate" value="0"
             class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
         </td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
           <label class="inline-flex items-center mt-3">
-            <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-600" checked><span
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-600"><span
               class="ml-2 text-gray-700">Passthrough</span>
           </label>
         </td>
@@ -172,6 +149,36 @@
                      border duration-400 ease-in-out 
                      border-green-600 transition "> Save</a>
         </td>
+      </tr>
+
+      <tr id="MSFrow1">
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+          <a class="text-indigo-600 hover:text-indigo-900 cursor-pointer" id="edit1">Edit</a></td>
+      </tr>
+
+      <tr>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
+      </tr>
+
+      <tr id="form2-testrow">
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
       </tr>
 
     </tbody>
@@ -201,7 +208,7 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
       </tr>
 
       <tr>
@@ -211,7 +218,7 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
       </tr>
 
       <tr>
@@ -221,7 +228,7 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
       </tr>
     </tbody>
   </table>
@@ -251,7 +258,7 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
       </tr>
 
       <tr>
@@ -261,7 +268,7 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
       </tr>
 
       <tr>
@@ -271,7 +278,7 @@
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
         <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 "><a
-            class="text-indigo-600 hover:text-indigo-900">Edit</a></td>
+            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Edit</a></td>
       </tr>
 
     </tbody>
@@ -285,6 +292,9 @@
 
   $('.form-textfield').hide()
   $('#form2').hide()
+  $('#form2-hide').hide()
+  $('#componentform').hide()
+
   $('.form-dropdown').on('change',function(e){
     var optionSelected = $("option:selected", this);
     var valueSelected = this.value;
@@ -296,9 +306,21 @@
 
     }
    
-  })  
+  })
+  
+
+  $('#edit1').click(function(){
+    $('#MSFrow1, #componentform').toggle()
+  })
+  $('#savecomponent-btn').click(function(){
+    $('#MSFrow1, #componentform').toggle()
+  })
+
+  $('#form2-hide').click(function(){
+    $('#form2-hide, #form2-button, #form2').toggle()
+  })
   $('#form2-button, #form2-save').click(function () {
-    $('#form2').toggle()
+    $('#form2-hide, #form2-button, #form2').toggle()
   })
 
   // $('#form2-testrow').hide()
@@ -308,7 +330,7 @@
 
 
   $('#componentform').hide()
-  $("#addcomponent-btn, #savecomponent-btn").click(function () {
+  $("#addcomponent-btn").click(function () {
     $('#componentrow').toggle()
     $('#componentform').toggle()
   })
