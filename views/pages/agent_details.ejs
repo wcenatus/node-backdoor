@@ -16,7 +16,10 @@
     <ul class='tabs flex cursor-pointer'>
       <li onclick="changeTab(1)" class='text-white py-2 px-6 active'><a>Details</a></li>
       <li onclick="changeTab(2)" class='text-white py-2 px-6'><a>Schedule A</a></li>
-      <li onclick="changeTab(3)" class='text-white py-2 px-6'><a>Commision Rates</a></li>
+      <li onclick="changeTab(3)" class='text-white py-2 px-6'><a>Commission Rates</a></li>
+      <% if(!data.standard_agent){%>
+        <li onclick="changeTab(4)" class='text-white py-2 px-6'><a>MID Administration</a></li>
+      <% } %>
     </ul>
   </div>
 
@@ -49,7 +52,7 @@
 
           <div class="mb-3">
             <label class="text-xs uppercase font-semibold text-gray-500">Address:</label>
-            <p class="font-semibold text-base"><%= data.address.street + ' '  + data.address.city + ', ' + data.address.state + ' ' + data.address.zipcode %></p>
+            <p class="font-semibold text-base"><%= data.address.street %> <br/> <%= data.address.city + ', ' + data.address.state + ' ' + data.address.zipcode %></p>
           </div>
 
         </div>
@@ -58,12 +61,12 @@
       <fieldset>
         <legend class="uppercase text-base font-bold text-blue-800 mb-3">Agent Codes</legend>
         <div class="mb-3">
-          <label class="text-xs uppercase font-semibold text-gray-500">TSYS:</label>
+          <label class="text-xs uppercase font-semibold text-gray-500">TSYS Association Code:</label>
           <p class="font-semibold text-base"><%= data.codes.TSYS %></p>
         </div>
 
         <div class="mb-3">
-          <label class="text-xs uppercase font-semibold text-gray-500">TriSource:</label>
+          <label class="text-xs uppercase font-semibold text-gray-500">TriSource Sort Code:</label>
           <p class="font-semibold text-base"><%= data.codes.TriSource %></p>
         </div>
       </fieldset>
@@ -77,7 +80,8 @@
           </div>
           <div class="mb-3">
             <label class="text-xs uppercase font-semibold text-gray-500">Status:</label>
-            <p class="font-semibold text-green-500 text-base">Active</p>
+            <p class="font-semibold text-base text-green-500"><i class="fas fa-circle text-xs align-middle"></i>
+              Active</p>
           </div>
 
         </div>
@@ -90,233 +94,283 @@
             border duration-400 ease-in-out 
             border-blue-600 transition "> Edit</a>
   </div>
+
+  <!-- Schedule A Tab -->
+  <div id="schedulea">
+    <div class="mx-6 mb-3 pt-0">
+              <select type="text" 
+                class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-52">
+                <option selected>Standard Agent</option>
+                <option>Legacy Residuals</option>
+              </select>
+            </div>
+    <!-- Monthly Fees table -->
+    <h1 class="text-2xl pl-6 mb-2">Monthly Fees</h1>
+    <table class=" min-w-full divide-y divide-gray-200">
+      <thead>
+        <tr>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Component</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Buy Rate</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Revenue Rate</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Max Rate</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Passthrough</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        </tr>
+
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        </tr>
+
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Other Fees Table -->
+    <h1 class="text-2xl pl-6 mb-2 mt-4">Other Fees</h1>
+    <table class=" min-w-full divide-y divide-gray-200">
+      <thead>
+        <tr>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Component</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Buy Rate</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Revenue Rate</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Max Rate</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Passthrough</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        </tr>
+
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        </tr>
+
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Processing Fee Table -->
+    <h1 class="text-2xl pl-6 mb-2 mt-4">Processing Fees</h1>
+    <table class=" min-w-full divide-y divide-gray-200">
+      <thead>
+        <tr>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Component</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Buy Rate</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Revenue Rate</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Max Rate</th>
+          <th
+            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Passthrough</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        </tr>
+
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        </tr>
+
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <a href="/agent/edit/schedulea/<%= data.agent_id %>" class="text-sm mt-5 ml-6 w-32 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+            hover:bg-blue-700 hover:text-blue-100 
+            bg-blue-100 
+            text-blue-700 
+            border duration-400 ease-in-out 
+            border-blue-600 transition "> Edit</a>
+  </div>
+
+
+  <!-- Commission Tab -->
+  <div id="commision">
+    <!-- <h1 class="text-2xl pl-6 mb-2 mt-4">Commission Rates</h1> -->
+    <table class="mt-4 min-w-full divide-y divide-gray-200">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Commission Code</th>
+          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Agent Rate</th>
+          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Commission Name</th>
+          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Profit Manager</th>
+          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Platform</th>
+          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
+            Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class='clickable-row cursor-pointer hover:bg-blue-100' data-href='/commission/010001'>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">010001</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 font-medium">0.050</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">XX123,CF</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Chris Frey</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">TSYS</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+            <span
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+          </td>
+        </tr>
+        <tr class='clickable-row cursor-pointer hover:bg-blue-100' data-href='/commission/010002'>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">010002</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 font-medium">0.050</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">XX123,CF</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Chris Frey</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">TSYS</td>
+
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+            <span
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+          </td>
+        </tr>
+        <tr class='clickable-row cursor-pointer hover:bg-blue-100' data-href='/commission/010003'>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">010003</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 font-medium">0.050</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">XX123,CF</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Chris Frey</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">TSYS</td>
+          <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
+            <span
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="mid_admin">
+    <div class="grid grid-cols-3 gap-4">
+      <div>
+        <div class="bg-gray-200 py-2 px-2">
+          <input type="text" placeholder="Enter MID" class="block px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
+          <a href="/schedulea/edit/<%= data.id %>" class="text-sm mt-2 w-32 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+            hover:bg-blue-700 hover:text-blue-100 
+            bg-blue-100 
+            text-blue-700 
+            border duration-400 ease-in-out 
+            border-blue-600 transition "><i class="fas fa-plus pr-2 py-1"></i> Add MID</a>
+        </div>
+      </div>
+        
+      <div class="bg-gray-200 py-2 px-2">
+        <div class="px-3 py-3 bg-gray-100 w-full mb-2">
+          <p class="inline-block">112345678</p>
+          <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer"></i>
+        </div>
+        <div class="px-3 py-3 bg-gray-100 w-full mb-2">
+          <p class="inline-block">112345678</p>
+          <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer"></i>
+        </div>
+        <div class="px-3 py-3 bg-gray-100 w-full mb-2">
+          <p class="inline-block">112345678</p>
+          <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer"></i>
+        </div>
+        <div class="px-3 py-3 bg-gray-100 w-full mb-2">
+          <p class="inline-block">112345678</p>
+          <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer"></i>
+        </div>
+        <div class="px-3 py-3 bg-gray-100 w-full mb-2">
+          <p class="inline-block">112345678</p>
+          <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer"></i>
+        </div>
+        <div class="px-3 py-3 bg-gray-100 w-full mb-2">
+          <p class="inline-block">112345678</p>
+          <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer"></i>
+        </div>
+        <div class="px-3 py-3 bg-gray-100 w-full">
+          <p class="inline-block">112345678</p>
+          <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
-<!-- Schedule A Tab -->
-<div id="schedulea" class="container mx-auto mt-4">
-  <div class="mx-6 mb-3 pt-0">
-            <select type="text" 
-              class="px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-52">
-              <option selected>Standard Agent</option>
-              <option>Legacy Residuals</option>
-            </select>
-          </div>
-  <!-- Monthly Fees table -->
-  <h1 class="text-2xl pl-6 mb-2">Monthly Fees</h1>
-  <table class=" min-w-full divide-y divide-gray-200">
-    <thead>
-      <tr>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Component</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Buy Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Revenue Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Max Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Passthrough</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-      </tr>
-
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-      </tr>
-
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- Other Fees Table -->
-  <h1 class="text-2xl pl-6 mb-2 mt-4">Other Fees</h1>
-  <table class=" min-w-full divide-y divide-gray-200">
-    <thead>
-      <tr>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Component</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Buy Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Revenue Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Max Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Passthrough</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-      </tr>
-
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-      </tr>
-
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- Processing Fee Table -->
-  <h1 class="text-2xl pl-6 mb-2 mt-4">Processing Fees</h1>
-  <table class=" min-w-full divide-y divide-gray-200">
-    <thead>
-      <tr>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Component</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Buy Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Revenue Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Max Rate</th>
-        <th
-          class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Passthrough</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Monthly Service Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$5</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-      </tr>
-
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regular Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$2.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0.5%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$29.99</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-      </tr>
-
-      <tr>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Regulatory Bundle Monthly Fee</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">0%</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">$0</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">false</td>
-      </tr>
-
-    </tbody>
-  </table>
-
-  <a href="/agent/edit/schedulea/<%= data.agent_id %>" class="text-sm mt-5 ml-6 w-32 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
-          hover:bg-blue-700 hover:text-blue-100 
-          bg-blue-100 
-          text-blue-700 
-          border duration-400 ease-in-out 
-          border-blue-600 transition "> Edit</a>
-</div>
-
-
-<!-- Commission Tab -->
-<div id="commision" class="container mx-auto mt-3">
-  <!-- <h1 class="text-2xl pl-6 mb-2 mt-4">Commission Rates</h1> -->
-  <table class="mt-4 min-w-full divide-y divide-gray-200">
-    <thead>
-      <tr>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Commission Code</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Agent Rate</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Commission Name</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Profit Manager</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Platform</th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-800 uppercase tracking-wider">
-          Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class='clickable-row cursor-pointer hover:bg-blue-100' data-href='/commission/010001'>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">010001</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 font-medium">0.050</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">XX123,CF</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Chris Frey</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">TSYS</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
-          <span
-            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
-        </td>
-      </tr>
-      <tr class='clickable-row cursor-pointer hover:bg-blue-100' data-href='/commission/010002'>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">010002</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 font-medium">0.050</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">XX123,CF</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Chris Frey</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">TSYS</td>
-
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
-          <span
-            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
-        </td>
-      </tr>
-      <tr class='clickable-row cursor-pointer hover:bg-blue-100' data-href='/commission/010003'>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">010003</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 font-medium">0.050</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">XX123,CF</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">Chris Frey</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">TSYS</td>
-        <td class="px-6 py-4 whitespace-no-wrap text-base leading-5 text-gray-800 ">
-          <span
-            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
 
 
@@ -349,19 +403,28 @@
 
   $('#schedulea').hide()
   $('#commision').hide()
+  $('#mid_admin').hide()
   function changeTab(tab) {
     if (tab === 1) {
       $('#details').show()
       $('#schedulea').hide()
       $('#commision').hide()
+      $('#mid_admin').hide()
     } else if (tab === 2) {
       $('#details').hide()
       $('#schedulea').show()
       $('#commision').hide()
+      $('#mid_admin').hide()
     } else if (tab === 3) {
       $('#details').hide()
       $('#schedulea').hide()
       $('#commision').show()
+      $('#mid_admin').hide()
+    }else if (tab === 4) {
+      $('#details').hide()
+      $('#schedulea').hide()
+      $('#commision').hide()
+      $('#mid_admin').show()
     }
 
   }

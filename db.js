@@ -1,11 +1,33 @@
 module.exports= {
     agents: [
         {
+            "agent_id":"012344",
+            "standard_agent":false,
+            "name": "Acquiring Solutions International",
+            "email":"info@aqsl.com",
+            "codes":{
+                "TSYS":"ASI101",
+                "TriSource":"0123456789"
+            },
+            "reports_to": "null",
+            "phone":"(516)123-4567",
+            "mobile":"(203)123-4567",
+            "address":{
+                "street": "23961 Craftsman Road, Suite E",
+                "city": "Calabasas",
+                "state": "CA",
+                "zipcode":"91302",
+                "country":"United States"
+            },
+            "active": true   
+        },
+        {
             "agent_id":"012345",
+            "standard_agent":true,
             "name": "Wesley Cenatus",
             "email":"Wesley.Cenatus@cwams.com",
             "codes":{
-                "TSYS":"0123456789",
+                "TSYS":"WC101",
                 "TriSource":"0123456789"
             },
             "reports_to": "Christopher Dibenedetto",
@@ -22,10 +44,11 @@ module.exports= {
         },
         {
             "agent_id":"012346",
+            "standard_agent":true,
             "name": "Larry Fitzgerald",
             "email":"Larry.Fitzgerald@cwams.com",
             "codes":{
-                "TSYS":"0123456789",
+                "TSYS":"LF101",
                 "TriSource":"0123456789"
                 },
             "reports_to": "Kliff Kingsbury",
@@ -42,10 +65,11 @@ module.exports= {
         },
         {
             "agent_id":"012347",
+            "standard_agent":true,
             "name": "Cam Newton",
             "email":"Cam.Newton@cwams.com",
             "codes":{
-                "TSYS":"0123456789",
+                "TSYS":"CN101",
                 "TriSource":"0123456789"
             },
             "reports_to": "Bill Belichick",
@@ -56,6 +80,27 @@ module.exports= {
                 "city": "Syosset",
                 "state": "NY",
                 "zipcode":"11791",
+                "country":"United States"
+            },
+            "active": true   
+        },
+        {
+            "agent_id":"012344",
+            "standard_agent":false,
+            "name": "Balanced Partners",
+            "email":"info@bp.com",
+            "codes":{
+                "TSYS":"BP101",
+                "TriSource":"0123456789"
+            },
+            "reports_to": "null",
+            "phone":"(516)123-4567",
+            "mobile":"(203)123-4567",
+            "address":{
+                "street": "23961 Craftsman Road, Suite E",
+                "city": "Calabasas",
+                "state": "CA",
+                "zipcode":"91302",
                 "country":"United States"
             },
             "active": true   
