@@ -1,7 +1,7 @@
 module.exports= {
     agents: [
         {
-            "agent_id":"012344",
+            "agent_id":"012341",
             "standard_agent":false,
             "name": "Acquiring Solutions International",
             "email":"info@aqsl.com",
@@ -19,6 +19,8 @@ module.exports= {
                 "zipcode":"91302",
                 "country":"United States"
             },
+            "MID":
+            ["4191000012340","4191000012341","4191000012342","4191000012343","4191000012344","4191000012345","4191000012346","4191000012347","4191000012348","4191000012349"],
             "active": true   
         },
         {
@@ -103,6 +105,7 @@ module.exports= {
                 "zipcode":"91302",
                 "country":"United States"
             },
+            "MID":["4191000012340","4191000012341","4191000012342","4191000012343","4191000012344","4191000012345"],
             "active": true   
         }
       ],
