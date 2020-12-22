@@ -107,6 +107,27 @@ module.exports= {
             },
             "MID":["4191000012340","4191000012341","4191000012342","4191000012343","4191000012344","4191000012345"],
             "active": true   
+        },
+        {
+            "agent_id":"012349",
+            "standard_agent":true,
+            "name": "Ray Lewis",
+            "email":"Ray.Lewis@cwams.com",
+            "codes":{
+                "TSYS":"RL101",
+                "TriSource":"0123456789"
+            },
+            "reports_to": "John Harbaugh",
+            "phone":"(516)123-4567 x1619",
+            "mobile":"(203)123-4567",
+            "address":{
+                "street": "6900 Jericho Turnpike",
+                "city": "Syosset",
+                "state": "NY",
+                "zipcode":"11791",
+                "country":"United States"
+            },
+            "active": false   
         }
       ],
     
@@ -140,7 +161,7 @@ module.exports= {
                 {"name":"Cam Newton", "rate":"50%"},
                 {"name":"Bill Belichick", "rate":"50%"}
             ],
-            "active":false
+            "active":true
         },
         {
             "commission_code": "010004",
@@ -230,7 +251,7 @@ module.exports= {
         },
         {
             "id":'9',
-            "name":"Modus",
+            "name":"Modius",
             "added_by":"system",
             "start_date":"12/4/2020",
             "end_date":"1/20/2023",

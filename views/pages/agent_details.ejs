@@ -61,12 +61,12 @@
       <fieldset>
         <legend class="uppercase text-base font-bold text-blue-800 mb-3">Agent Codes</legend>
         <div class="mb-3">
-          <label class="text-xs uppercase font-semibold text-gray-500">TSYS Association Code:</label>
+          <label class="text-xs uppercase font-semibold text-gray-500">TSYS:</label>
           <p class="font-semibold text-base"><%= data.codes.TSYS %></p>
         </div>
 
         <div class="mb-3">
-          <label class="text-xs uppercase font-semibold text-gray-500">TriSource Sort Code:</label>
+          <label class="text-xs uppercase font-semibold text-gray-500">TriSource:</label>
           <p class="font-semibold text-base"><%= data.codes.TriSource %></p>
         </div>
       </fieldset>
@@ -80,8 +80,12 @@
           </div>
           <div class="mb-3">
             <label class="text-xs uppercase font-semibold text-gray-500">Status:</label>
-            <p class="font-semibold text-base text-green-500"><i class="fas fa-circle text-xs align-middle"></i>
-              Active</p>
+            <% if(data.active){ %>
+              <p class="font-semibold text-base text-green-500"><i class="fas fa-circle text-xs align-middle mr-1"></i>Active</p>
+            <% } %>
+            <% if(!data.active){ %>
+              <p class="font-semibold text-base text-red-500"><i class="fas fa-circle text-xs align-middle mr-1"></i>Inactive</p>
+            <% } %>
           </div>
 
         </div>
@@ -322,33 +326,30 @@
   </div>
 
   <div id="mid_admin">
-    <div class="grid grid-cols-3 gap-4">
-      <div>
+    
         <div class="bg-gray-200 py-2 px-2">
-          <input id="mid-input" type="text" placeholder="Enter MID" class="block px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline w-full" />
-          <a id="mid-btn" class="text-sm mt-2 w-32 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
-            hover:bg-blue-700 hover:text-blue-100 
-            bg-blue-100 
-            text-blue-700 
-            border duration-400 ease-in-out 
-            border-blue-600 transition "><i class="fas fa-plus pr-2 py-1"></i> Add MID</a>
+          <input id="mid-input" type="text" placeholder="Enter MID" class="inline-block w-5/6 px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline" />
+          <a id="mid-btn" class="ml-4 inline-block text-base w-auto focus:outline-none justify-center px-4 py-2 rounded font-bold cursor-pointer 
+          hover:bg-blue-700 hover:text-blue-100 
+          bg-blue-100 
+          text-blue-700 
+          border duration-400 ease-in-out 
+          border-blue-600 transition "><i class="fas fa-plus pr-2 py-1"></i> Add MID</a>
         </div>
-      </div>
+   
         
-      <div class="bg-gray-200 py-2 px-2" id="mid-list">
-        <% if (data.MID){ %>
-          <%  for(var i =0; i < data.MID.length; i++){ %>
-          <div class="px-3 py-3 bg-gray-100 w-full mb-2" id="<%= 'mid-'+i %>">
-            <p class="inline-block"><%= data.MID[i] %></p>
-            <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer" onclick="$(this).closest('div').remove()"></i>
-          </div>
+      <div class="bg-gray-200 py-2 px-2" >
+        <div id="mid-list" class="overflow-auto" style="height: 400px;">
+          <% if (data.MID){ %>
+            <%  for(var i =0; i < data.MID.length; i++){ %>
+            <div class="px-3 py-3 bg-gray-100 w-full mb-2" id="<%= 'mid-'+i %>">
+              <p class="inline-block"><%= data.MID[i] %></p>
+              <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer" onclick="$(this).closest('div').remove()"></i>
+            </div>
+            <% } %>
           <% } %>
-        <% } %>
-        
+        </div>
     </div>
-
-  </div>
-
 </div>
 
 
@@ -371,14 +372,20 @@
     window.location = $(this).data("href");
   });
 
+  var numOfAppended = 0 
   $('#mid-btn').click(function(){
+    numOfAppended++
     var value = $('#mid-input').val
     $("#mid-list").append(`
-        <div class="px-3 py-3 bg-gray-100 w-full mb-2">
+        <div id="${'newrow-'+ numOfAppended}" class="px-3 py-3 bg-gray-100 w-full mb-2" style="background-color:#FAFC92;">
             <p class="inline-block">112354</p>
             <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer" onclick="$(this).closest('div').remove()"></i>
         </div>
     `)
+    $("#mid-list").animate({ scrollTop: $('#mid-list').prop("scrollHeight")}, 1000);
+    $( "#newrow-" + numOfAppended ).animate({
+          backgroundColor: "#F7FAFC",
+        }, 4000 )
   })
 
   $(function () {
