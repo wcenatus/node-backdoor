@@ -327,7 +327,7 @@
 
   <div id="mid_admin">
     
-        <div class="bg-gray-200 py-2 px-2">
+        <div class="shadow-md rounded py-4 px-4">
           <input id="mid-input" type="text" placeholder="Enter MID" class="inline-block w-5/6 px-3 py-3 border-solid border-2 border-light-blue-500 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm outline-none focus:outline-none focus:shadow-outline" />
           <a id="mid-btn" class="ml-4 inline-block text-base w-auto focus:outline-none justify-center px-4 py-2 rounded font-bold cursor-pointer 
           hover:bg-blue-700 hover:text-blue-100 
@@ -338,8 +338,9 @@
         </div>
    
         
-      <div class="bg-gray-200 py-2 px-2" >
-        <div id="mid-list" class="overflow-auto" style="height: 400px;">
+      <div class=" px-2" >
+        <div id="mid-list" class="overflow-auto" style="height: 620px;">
+          <div class='py-1'></div>
           <% if (data.MID){ %>
             <%  for(var i =0; i < data.MID.length; i++){ %>
             <div class="px-3 py-3 bg-gray-100 w-full mb-2" id="<%= 'mid-'+i %>">
@@ -377,7 +378,7 @@
     numOfAppended++
     var value = $('#mid-input').val
     $("#mid-list").append(`
-        <div id="${'newrow-'+ numOfAppended}" class="px-3 py-3 bg-gray-100 w-full mb-2" style="background-color:#FAFC92;">
+        <div id="${'newrow-'+ numOfAppended}" class="px-3 py-3 bg-gray-200 w-full mb-2" style="background-color:#FAFC92;">
             <p class="inline-block">112354</p>
             <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer" onclick="$(this).closest('div').remove()"></i>
         </div>
