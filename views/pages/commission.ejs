@@ -51,10 +51,10 @@
                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                     Platform
                   </th>
-                  <th
+                  <!-- <th
                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                     Status
-                  </th>
+                  </th> -->
                   <th class="px-6 py-3 bg-gray-50"></th>
                 </tr>
               </thead>
@@ -86,12 +86,22 @@
                     </div>
                   </td>
                   <!-- STATUS -->
-                  <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                    <span
-                      class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                      <%= commission.active === true? 'Active' : 'Inactive' %>
-                    </span>
-                  </td>
+                  <!-- <% if(commission.active){ %> 
+                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        Active
+                      </span>
+                    </td>
+                    <% } %>
+                    <% if(!commission.active){ %>
+                      <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                          Inactive
+                        </span>
+                      </td> 
+                    <% } %> -->
                   <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
                     <a href="./editagent.html" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                   </td>

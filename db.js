@@ -137,7 +137,7 @@ module.exports= {
             "commission_name": ["LF101","BB"],
             "platform":"TSYS",
             "agents":[
-                {"name":"Larry Fitzgerald", "rate":"50%"},
+                {"name":"Larry Fitzgerald", "rate":"50%", "active":false},
                 {"name":"Bill Belichick", "rate":"25%"},
                 {"name":"Cam Newton", "rate":"25%"}
             ],
@@ -148,7 +148,7 @@ module.exports= {
             "commission_name": ["LF101","BB"],
             "platform":"TriSource",
             "agents":[
-                {"name":"Larry Fitzgerald", "rate":"50%"},
+                {"name":"Larry Fitzgerald", "rate":"50%", "active":false},
                 {"name":"Bill Belichick", "rate":"50%"}
             ],
             "active":true
@@ -178,7 +178,7 @@ module.exports= {
             "commission_name": ["WC102","BB"],
             "platform":"TSYS",
             "agents":[
-                {"name":"Larry Fitzgerald", "rate":"50%"},
+                {"name":"Larry Fitzgerald", "rate":"50%", "active":false},
                 {"name":"Bill Belichick", "rate":"50%"}
             ],
             "active":false

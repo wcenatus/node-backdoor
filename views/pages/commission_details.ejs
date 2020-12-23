@@ -29,7 +29,9 @@
               <p class="font-semibold text-base"><%= data.commission_code %></p>
             </div>
             <div class="mb-3">
-              <label class="text-xs uppercase font-semibold text-gray-500">Commission name:</label>
+              <label class="text-xs uppercase font-semibold text-gray-500 inline-block">Commission name  
+                <p class='tooltip inline-block ml-1'> <i class="fas fa-question-circle"></i> <span class='tooltip-text bg-blue-200 p-3 -mt-6 -ml-6 rounded text-black'><%= data.platform === 'TSYS'? 'TSYS Association Code' : data.platform === 'TriSource' ? 'TriSource Sort Code': null  %></span></p>
+              </label>
               <p class="font-semibold text-base"><%= data.commission_name[0] + ', ' + data.commission_name[1] %></p>
             </div>
             <div class="mb-3">
@@ -52,11 +54,11 @@
               <label class="text-xs uppercase font-semibold text-gray-500">Profit Manager:</label>
               <p class="font-semibold text-base"><%= data.agents[1].name %></p>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label class="text-xs uppercase font-semibold text-gray-500">Status:</label>
               <p class="font-semibold text-base text-green-500"><i class="fas fa-circle text-xs align-middle"></i>
                 Active</p>
-            </div>
+            </div> -->
 
           </div>
         </fieldset>
@@ -74,13 +76,20 @@
     <div class="mt-6 grid grid-cols-4">
       <%  for(var i =0; i < agents.length; i++){ %>
       <div class="max-w-sm rounded overflow-hidden shadow mr-5">
-        <div class="<%= i === 1? 'bg-blue-400' : 'bg-green-400' %> w-full h-2"></div>
+        <div class="<%= i === 1? 'bg-blue-400' : agents[i].active == false ? 'bg-red-400':'bg-green-400' %> w-full h-2"></div>
         <% if(i === 1){ %>
         <span
           class="float-right text-xs font-semibold inline-block mr-3 my-3 py-1 px-2 uppercase rounded text-blue-500 bg-blue-100 uppercase last:mr-0 mr-1">
           Manager
         </span>
         <!-- <i style="opacity: 0.3;" class="fas fa-crown  text-yellow-500 text-4xl px-3 py-3"></i> -->
+        <% } %>
+        <% if(agents[i].active == false){ %>
+          <span
+            class="float-right text-xs font-semibold inline-block mr-3 my-3 py-1 px-2 uppercase rounded text-red-500 bg-red-100 uppercase last:mr-0 mr-1">
+            Inactive
+          </span>
+          <!-- <i style="opacity: 0.3;" class="fas fa-crown  text-yellow-500 text-4xl px-3 py-3"></i> -->
         <% } %>
         <div></div>
         <div class="px-6 py-3">
