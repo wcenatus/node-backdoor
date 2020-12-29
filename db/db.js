@@ -23,5 +23,8 @@ module.exports= {
             });
         });
         db.close();
+    },
+    insertInto: function(into, values){
+        
     }
 }
