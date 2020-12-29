@@ -34,44 +34,53 @@
           <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table class="table min-w-full divide-y divide-gray-200">
               <thead class="bg-gray-100">
-                <!-- <tr>
-                    <td class="bg-white border-none" colspan="2"></td>
-                    <td class="text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider" colspan="2">
-                      <div class="py-2" style="margin-left: 20px;">
-                        Agent Codes
-                      </div> 
-                    </td>
-                  </tr> -->
                 <tr>
-                  <th
-                    class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Agent Seq
-                  </th>
                   <th
                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                     Name
                   </th>
                   <th
                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    TSYS
+                    MID
                   </th>
                   <th
                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Trisource
+                    Date Created
                   </th>
                   <th
                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Reports to
+                    Date Updated
                   </th>
-                  <th
-                    class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th class="px-6 py-3 bg-gray-50"></th>
                 </tr>
               </thead>
               <tbody id="table" class="bg-white divide-y divide-gray-200">
-                
+                <% for(var i = 0; i < data.length;i++){ %>
+                  <tr class="hover:bg-blue-100">
+                     <!-- NAME -->
+                    <td class="px-6 py-4 whitespace-no-wrap">
+                      <a href="/midadmin/<%= data[i].id %>"
+                        class="text-sm leading-5 font-medium text-gray-900"><%= data[i].name %></a>
+                    </td>
+                    <!-- MID -->
+                  <td class="px-6 py-4 whitespace-no-wrap">
+                    <div class="text-sm leading-5 font-medium text-gray-900">
+                      <%= data[i].mid %>
+                    </div>
+                  </td>
+                  <!-- DATE CREATED -->
+                  <td class="px-6 py-4 whitespace-no-wrap">
+                    <div class="text-sm leading-5 font-medium text-gray-900">
+                      <%= data[i].created %>
+                    </div>
+                  </td>
+                  <!-- DATE UPDATED -->
+                  <td class="px-6 py-4 whitespace-no-wrap">
+                    <div class="text-sm leading-5 font-medium text-gray-900">
+                      <%= data[i].date%>
+                    </div>
+                  </td>
+                  </tr>
+                <% } %>
               </tbody>
             </table>
           </div>

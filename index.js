@@ -11,7 +11,7 @@ var commission = require('./routes/commission')
 var schedulea = require('./routes/schedulea')
 var midadmin = require('./routes/midadmin')
 
-sqldb.initdb()
+// sqldb.initdb()
 
 app.use('/agent', agent)
 app.use('/commission', commission)
