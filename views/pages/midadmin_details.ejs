@@ -40,9 +40,12 @@
           <div class='py-1'></div>
           <% if (data.length > 0 ){ %>
             <%  for(var i =0; i < data.length; i++){ %>
+            
             <div class="px-3 py-3 bg-gray-100 w-full mb-2" id="<%= 'mid-'+i %>">
               <p class="inline-block"><%= data[i].mid %></p>
-              <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer" onclick="$(this).closest('div').remove()"></i>
+              <a id="<%= data[i].mid %>" onclick="deleteMID(this.id)">
+                <i class="far fa-trash-alt inline-block float-right py-1 text-red-500 cursor-pointer"></i>
+              </a>  
             </div>
             <% } %>
           <% } %>
@@ -85,7 +88,18 @@
           backgroundColor: "#F7FAFC",
         }, 4000 )
   })
-
+  
+  var currentId = "<%- data[0].parent_id %>"
+  function deleteMID(id){
+    $.ajax({
+        url: `localhost:8080/midadmin/${currentId}?mid=${id}`,
+        type: 'DELETE',
+        success: function(result) {
+            // Do something with the result
+        }
+    });
+  }
+  
 </script>
 
 <%- include('../partials/footer') %>

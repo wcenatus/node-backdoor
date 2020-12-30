@@ -33,4 +33,18 @@ router.get('/:id', async function(req, res){
     })
 })
 
+router.delete('/:id', async function(req, res){
+  console.log('nice...')
+  var id = req.params.id
+  var mid = req.query.mid
+  await data.deleteMID(id, mid).then(rows => console.log(rows))     
+})
+
+router.put('/:id', async function(req, res){
+  console.log('nice...')
+  var id = req.params.id
+  var mid = req.query.mid
+  await data.addMID(id, mid).then(rows => console.log(rows))     
+})
+
 module.exports = router

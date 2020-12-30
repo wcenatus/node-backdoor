@@ -44,6 +44,7 @@ module.exports= {
         db.close();
         
     },
+    //Global Use
     getAllFrom: function(location) {
         return new Promise((resolve, reject) => {
             let orders = [];
@@ -54,6 +55,12 @@ module.exports= {
     },
 
     getOneFrom: function(unique_id,location){
+        return new Promise((resolve, reject)=>{
+            let orders = [];
+            db.all(`SELECT * FROM ${location} WHERE id = ${unique_id}`, function(err, rows) {
+              resolve(rows);
+            });  
+        })
 
     },
     //Exclusive to MID admin
@@ -67,18 +74,18 @@ module.exports= {
                     }); 
         }) 
     },
-    addMID: function(parent_id){
+    addMID: function(id, mid){
         return new Promise((resolve, reject) => {
             let orders = [];
-            db.run(`INSERT INTO mids * FROM mids WHERE parent_id = ${parent_id}`, function(err, rows) {
+            db.run(`INSERT INTO mids (parent_id,mid) VALUES= ${id + ',' + mid}`, function(err, rows) {
               resolve(rows);
             });  
         }) 
     },
-    deleteMID: function(parent_id){
+    deleteMID: function(id, mid){
         return new Promise((resolve, reject) => {
             let orders = [];
-            db.all(`SELECT * FROM mids WHERE parent_id = ${parent_id}`, function(err, rows) {
+            db.run(`DELETE FROM mids WHERE mid = ${mid}`, function(err, rows) {
               resolve(rows);
             });  
         }) 
